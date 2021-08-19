@@ -59,8 +59,10 @@ form {
   border-radius: 50%;
   box-shadow: 4px 4px 10px grey;
   padding: 16px;
-  h4 {
-    margin-bottom: 32px;
+  h5 {
+    margin: 8px 0 32px 0;
+    color: #E8CF00;
+    text-shadow: 1px 1px 5px black;
   }
   input {
     margin-left: 8px;
@@ -68,6 +70,9 @@ form {
   button {
     width: 160px;
     margin-top: 16px;
+  }
+  img {
+    height: 100px;
   }
 }
 

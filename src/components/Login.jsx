@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import themeSong from './music/Login.mp3'
 import Banjo from './music/Banjo.mp3'
+import Logo from './images/Logo.png'
 
 const Login = (props) => {
   const {handleLogin} = props;
@@ -27,7 +28,8 @@ const Login = (props) => {
       <div className="login-page">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <h4>BANJO-KAZOOIE CONCENTRATION GAME</h4>
+            <img src={Logo} alt="Logo" />
+            <h5>CONCENTRATION GAME</h5>
             <label>ENTER YOUR NAME</label>
             <br />
             <input type="text" onChange={handleChange}/>
