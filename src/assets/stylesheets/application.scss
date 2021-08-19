@@ -68,12 +68,16 @@ form {
   }
   button {
     width: 160px;
-    margin-top: 16px;
+    margin: 16px;
   }
   img {
     height: 100px;
     animation-duration: 3s;
     animation-iteration-count: infinite;
+  }
+  #mute {
+    height: 16px;
+    cursor: pointer;
   }
 }
 

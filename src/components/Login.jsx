@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import themeSong from './music/Login.mp3'
 import Banjo from './music/Banjo.mp3'
 import Logo from './images/Logo.png'
+import Mute from './images/Mute.png'
+import Unmute from './images/Unmute.png';
 
 const Login = (props) => {
   const {handleLogin} = props;
@@ -23,6 +25,16 @@ const Login = (props) => {
     setName(event.target.value.toUpperCase());
   }
 
+  const muteAudio = () => {
+    const audio = document.querySelector('.audio-element');
+    !audio.muted ? audio.muted = true : audio.muted = false;
+  }
+
+  // const audioIconToggle = () => {
+  //   const audio = document.querySelector('.audio-element');
+  //   !audio.muted ? Mute : Unmute;
+  // }
+
   return (
     <div className="wrapper">
       <div className="login-page">
@@ -37,6 +49,7 @@ const Login = (props) => {
           <button className='btn btn-warning'>
             SUBMIT
           </button>
+          <img id="mute" onClick={muteAudio} src={Unmute} alt="Mute/Unmute Icon" />
         </form>
         <audio className="audio-element">
           <source src={themeSong}></source>
