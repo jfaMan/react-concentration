@@ -19,7 +19,7 @@ const Login = (props) => {
   }
 
   const handleChange = (event) => {
-    setName(event.target.value);
+    setName(event.target.value.toUpperCase());
   }
 
   return (
@@ -27,13 +27,13 @@ const Login = (props) => {
       <div className="login-page">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <h4>Banjo-Kazooie Concentration game</h4>
-            <label>Enter your name</label>
+            <h4>BANJO-KAZOOIE CONCENTRATION GAME</h4>
+            <label>ENTER YOUR NAME</label>
             <br />
             <input type="text" onChange={handleChange}/>
           </div>
           <button className='btn btn-warning'>
-            Submit
+            SUBMIT
           </button>
         </form>
         <audio className="audio-element">

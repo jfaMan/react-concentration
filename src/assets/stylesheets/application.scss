@@ -1,3 +1,10 @@
+// Fonts //
+
+@font-face {
+  font-family: banjoKazooie;
+  src: url('../fonts/AndyBold.ttf');
+}
+
 // Custom colors //
 $yellow: #FDF679;
 
@@ -5,6 +12,7 @@ $yellow: #FDF679;
 
 body {
   background-color: $yellow;
+  font-family: banjoKazooie;
   // background-image: url("https://res.cloudinary.com/dccda88q7/image/upload/v1629365638/react-concentration/Login-background_cvhj6o.png");
   // background-position: center;
   // background-size: cover;
@@ -28,8 +36,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px;
-  background-color: $yellow;
+  margin-top: 64px;
+  // margin: 64px auto 0 auto;
+  // width: 600px;
+  // background-color: white;
   // position: absolute;
   // left: 250px;
 
@@ -41,11 +51,12 @@ form {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: white;
+  background-color: #8EE190;
+  // background-color: rgba(128, 128, 128, 0.3);
   height: 400px;
   width: 600px;
   // border: 1px solid grey;
-  border-radius: 8px;
+  border-radius: 50%;
   box-shadow: 4px 4px 10px grey;
   padding: 16px;
   h4 {
