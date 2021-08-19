@@ -12,6 +12,18 @@ body {
 
 }
 
+.navbar {
+  height: 60px;
+  border-bottom: 1px solid grey;
+  box-shadow: 4px 4px 6px grey;
+  display: flex;
+  justify-content: space-between;
+  background-color: #73A1F6;
+  img {
+    height: 100%;
+  }
+}
+
 .login-page {
   display: flex;
   justify-content: center;
@@ -32,8 +44,9 @@ form {
   background-color: white;
   height: 400px;
   width: 600px;
-  border: 1px solid grey;
-  border-radius: 4px;
+  // border: 1px solid grey;
+  border-radius: 8px;
+  box-shadow: 4px 4px 10px grey;
   padding: 16px;
   h4 {
     margin-bottom: 32px;

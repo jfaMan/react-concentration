@@ -10,13 +10,18 @@ const App = () => {
   const [ name, setName ] = useState("");
   const [ score, setScore ] = useState(0);
 
+  const handleLogin = (name, boolean) => {
+    setName(name)
+    setShowLogin(boolean)
+  }
+
   return (
     <div>
       <Navbar
         name={name}
         score={score}
       />
-      {showLogin ? <Login /> : null}
+      {showLogin ? <Login handleLogin={handleLogin} /> : null}
       {/* {showEndGame ? <EndGame /> : null} */}
       {/* <Game /> */}
     </div>
