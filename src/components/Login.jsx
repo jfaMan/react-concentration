@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import themeSong from './music/Login.mp3'
+import Banjo from './music/Banjo.mp3'
 
 const Login = (props) => {
   const {handleLogin} = props;
   const [name, setName] = useState('');
 
   useEffect(() => {
-    const playThemeSong = document.querySelector(".audio-element")
-    playThemeSong.play()
+    const themeSongElement = document.querySelector(".audio-element");
+    themeSongElement.play();
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
     handleLogin(name, false);
+    const start = new Audio(Banjo);
+    start.play();
   }
 
   const handleChange = (event) => {

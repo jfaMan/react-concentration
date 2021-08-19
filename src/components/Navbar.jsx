@@ -7,7 +7,7 @@ const Navbar = (props) => {
     <div className="navbar">
       <img src={logo} alt="Logo" />
       <div className="game-title">Banjo-Kazooie Concentration</div>
-      <div className="name">Name: {name}</div>
+      <div className="name">Player Name: {name}</div>
       <div className="score">Score: {score}</div>
     </div>
   )
