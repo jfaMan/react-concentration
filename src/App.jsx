@@ -12,8 +12,8 @@ const App = () => {
 
   return (
     <div>
-      <Login />
-      <EndGame />
+      {showLogin ? <Login /> : null}
+      {showEndGame ? <EndGame /> : null}
       <Navbar />
       <Game />
     </div>
