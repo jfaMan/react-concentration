@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import themeSong from './music/Login.mp3'
 
 const Login = (props) => {
   const {handleLogin} = props;
   const [name, setName] = useState('');
 
-  // const handleChange = (event) => {
-  //   setName(event.target.value);
-  // }
+  useEffect(() => {
+    const playThemeSong = document.querySelector(".audio-element")
+    playThemeSong.play()
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,6 +33,9 @@ const Login = (props) => {
             Submit
           </button>
         </form>
+        <audio className="audio-element">
+          <source src={themeSong}></source>
+        </audio>
       </div>
     </div>
   )
