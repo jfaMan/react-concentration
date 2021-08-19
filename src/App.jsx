@@ -12,9 +12,12 @@ const App = () => {
 
   return (
     <div>
+      <Navbar
+        name={name}
+        score={score}
+      />
       {showLogin ? <Login /> : null}
-      {showEndGame ? <EndGame /> : null}
-      {/* <Navbar /> */}
+      {/* {showEndGame ? <EndGame /> : null} */}
       {/* <Game /> */}
     </div>
   )

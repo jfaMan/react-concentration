@@ -1,0 +1,49 @@
+// Custom colors //
+$yellow: #FDF679;
+
+// Styling //
+
+body {
+  background-color: $yellow;
+  // background-image: url("https://res.cloudinary.com/dccda88q7/image/upload/v1629365638/react-concentration/Login-background_cvhj6o.png");
+  // background-position: center;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  background-color: $yellow;
+  // position: absolute;
+  // left: 250px;
+
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+  height: 400px;
+  width: 600px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 16px;
+  h4 {
+    margin-bottom: 32px;
+  }
+  input {
+    margin-left: 8px;
+  }
+  button {
+    width: 160px;
+    margin-top: 16px;
+  }
+}
+

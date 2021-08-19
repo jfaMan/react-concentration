@@ -14,12 +14,13 @@ const Login = () => {
 
   return (
     <div className="wrapper">
-      <div className="login">
+      <div className="login-page">
         <form onSubmit={handleSubmit}>
-          <div className="form">
-            <label>Name</label>
+          <div className="form-group">
+            <h4>Banjo-Kazooie Concentration game</h4>
+            <label>Enter your name</label>
+            <br />
             <input type="text" />
-            <p>Banjo-Kazooie Concentration game</p>
           </div>
           <button className='btn btn-warning'>
             Submit
