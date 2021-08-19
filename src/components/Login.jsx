@@ -28,7 +28,7 @@ const Login = (props) => {
       <div className="login-page">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <img src={Logo} alt="Logo" />
+            <img className="bounce" src={Logo} alt="Logo" />
             <h5>CONCENTRATION GAME</h5>
             <label>ENTER YOUR NAME</label>
             <br />
