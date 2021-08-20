@@ -8,10 +8,16 @@ import Unmute from './images/Unmute.png';
 const Login = (props) => {
   const {handleLogin} = props;
   const [name, setName] = useState('');
+  // const [audio, setAudio] = useState('');
 
+  // const playIt = () => {
+  //   const audio = new Audio(themeSong);
+  //   audio.play();
+  // }
   useEffect(() => {
     const themeSongElement = document.querySelector(".audio-element");
     themeSongElement.play();
+    // playIt()
   });
 
   const handleSubmit = (event) => {
@@ -27,13 +33,13 @@ const Login = (props) => {
 
   const muteAudio = () => {
     const audio = document.querySelector('.audio-element');
-    !audio.muted ? audio.muted = true : audio.muted = false;
+    audio.muted = !audio.muted ? true : false;
   }
 
-  // const audioIconToggle = () => {
-  //   const audio = document.querySelector('.audio-element');
-  //   !audio.muted ? Mute : Unmute;
-  // }
+  const audioIconToggle = () => {
+    const audio = document.querySelector('.audio-element');
+    return !audio.muted ? Mute : Unmute;
+  }
 
   return (
     <div className="wrapper">
@@ -49,11 +55,16 @@ const Login = (props) => {
           <button className='btn btn-warning'>
             SUBMIT
           </button>
-          <img id="mute" onClick={muteAudio} src={Unmute} alt="Mute/Unmute Icon" />
+          <audio className="audio-element">
+            <source src={themeSong}></source>
+          </audio>
+          <img
+            id="mute"
+            onClick={muteAudio}
+            src={Unmute}
+            alt="Mute/Unmute Icon"
+          />
         </form>
-        <audio className="audio-element">
-          <source src={themeSong}></source>
-        </audio>
       </div>
     </div>
   )
