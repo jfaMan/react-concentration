@@ -1,7 +1,14 @@
 import React from 'react';
 import images from './images/index'
+import Select from './music/Select.mp3'
 
 const Images = () => {
+
+  const handleClick = () => {
+    const select = new Audio(Select);
+    select.play();
+  }
+
   return (
     <div className="images">
       {images
@@ -12,6 +19,7 @@ const Images = () => {
               className="image"
               name={image.name}
               style={{ backgroundImage: `url(${image.pic})` }}
+              onClick={handleClick}
             />
           )
         })
