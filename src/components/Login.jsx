@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import themeSong from './music/Login.mp3'
 import Banjo from './music/Banjo.mp3'
+import Game from './music/Game.mp3'
 import Logo from './images/Logo.png'
 import Mute from './images/Mute.png'
 import Unmute from './images/Unmute.png';
@@ -27,6 +28,10 @@ const Login = (props) => {
     handleLogin(name, false);
     const start = new Audio(Banjo);
     start.play();
+    const gameMusic = new Audio(Game);
+    setTimeout(() => {
+      gameMusic.play()
+    }, 500);
   }
 
   const handleChange = (event) => {

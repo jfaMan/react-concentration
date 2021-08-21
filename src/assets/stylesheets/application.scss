@@ -74,6 +74,17 @@ form {
   }
 }
 
+input[type=text] {
+  border: 2px solid #ccc;
+  transition: 0.5s;
+  outline: none;
+  border-radius: 4px;
+  &:focus {
+    border: 2px solid #555;
+  }
+}
+
+
 .bounce {
   animation-name: bounce;
   animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
@@ -115,7 +126,6 @@ form {
     opacity: 50%;
   }
 }
-
 .game {
   justify-content: center;
 }
