@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import themeSong from './music/Login.mp3'
-import Banjo from './music/Banjo.mp3'
-import Game from './music/Game.mp3'
-import Logo from './images/Logo.png'
-import Mute from './images/Mute.png'
+// Audio imports //
+import themeSong from './music/Login.mp3';
+import Fireplace from './music/Fireplace.mp3';
+import Banjo from './music/Banjo.mp3';
+import Game from './music/Game.mp3';
+// Image imports //
+import Logo from './images/Logo.png';
+import Mute from './images/Mute.png';
 import Unmute from './images/Unmute.png';
 
 const Login = (props) => {
@@ -16,8 +19,11 @@ const Login = (props) => {
   //   audio.play();
   // }
   useEffect(() => {
-    const themeSongElement = document.querySelector(".audio-element");
+    const themeSongElement = document.querySelector(".theme-audio");
     themeSongElement.play();
+    const fireplaceElement = document.querySelector(".fireplace-audio");
+    fireplaceElement.volume = 0.6;
+    fireplaceElement.play();
     // playIt()
   });
 
@@ -39,12 +45,12 @@ const Login = (props) => {
   }
 
   const muteAudio = () => {
-    const audio = document.querySelector('.audio-element');
+    const audio = document.querySelector('.theme-audio');
     audio.muted = !audio.muted ? true : false;
   }
 
   const audioIconToggle = () => {
-    const audio = document.querySelector('.audio-element');
+    const audio = document.querySelector('.theme-audio');
     return !audio.muted ? Mute : Unmute;
   }
 
@@ -62,8 +68,11 @@ const Login = (props) => {
           <button className='btn btn-warning'>
             SUBMIT
           </button>
-          <audio className="audio-element">
+          <audio className="theme-audio" loop>
             <source src={themeSong}></source>
+          </audio>
+          <audio className="fireplace-audio" loop>
+            <source src={Fireplace}></source>
           </audio>
           <img
             id="mute"
