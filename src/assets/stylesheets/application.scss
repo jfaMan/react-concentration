@@ -46,7 +46,6 @@ form {
   align-items: center;
   text-align: center;
   background-color: #8EE190;
-  // background-color: rgba(128, 128, 128, 0.3);
   height: 400px;
   width: 600px;
   border-radius: 50%;
@@ -94,12 +93,13 @@ form {
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   grid-auto-rows: minmax(100px, auto);
+  padding: 12px;
   border-radius: 8px;
   height: 540px;
   width: 540px;
   background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
   margin-top: 32px;
-  padding: 12px;
 }
 
 .image {
@@ -117,6 +117,5 @@ form {
 }
 
 .game {
-  display: flex;
   justify-content: center;
 }

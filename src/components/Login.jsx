@@ -22,6 +22,8 @@ const Login = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const gameComponent = document.querySelector(".game")
+    gameComponent.style.display = gameComponent.style.display === "none" ? "flex" : "none";
     handleLogin(name, false);
     const start = new Audio(Banjo);
     start.play();

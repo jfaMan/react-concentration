@@ -3,7 +3,7 @@ import Images from './Images'
 
 const Game = () => {
   return (
-    <div className='game'>
+    <div className='game' style={{ display: 'none' }}>
       <Images />
     </div>
   )
