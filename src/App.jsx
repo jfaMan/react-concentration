@@ -23,7 +23,7 @@ const App = () => {
       />
       {showLogin ? <Login handleLogin={handleLogin} /> : null}
       {/* {showEndGame ? <EndGame /> : null} */}
-      {/* <Game /> */}
+      <Game />
     </div>
   )
 }

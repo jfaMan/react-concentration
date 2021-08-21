@@ -1,8 +1,11 @@
 import React from 'react';
+import Images from './Images'
 
 const Game = () => {
   return (
-    <div></div>
+    <div className='game'>
+      <Images />
+    </div>
   )
 }
 
