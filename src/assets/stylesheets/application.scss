@@ -12,17 +12,16 @@ $yellow: #FDF679;
 body {
   background-color: $yellow;
   font-family: banjoKazooie;
-  // background-image: url("https://res.cloudinary.com/dccda88q7/image/upload/v1629365638/react-concentration/Login-background_cvhj6o.png");
-  // background-position: center;
-  // background-size: cover;
-  // background-repeat: no-repeat;
-
+  background-image: url("../../components/images/Background.jpg");
+  background-position-y: 6%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .navbar {
   height: 60px;
   border-bottom: 1px solid grey;
-  box-shadow: 4px 4px 6px grey;
+  box-shadow: 4px 4px 20px black;
   display: flex;
   justify-content: space-between;
   background-color: #73A1F6;
@@ -33,15 +32,9 @@ body {
 
 .login-page {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 64px;
-  // margin: 64px auto 0 auto;
-  // width: 600px;
-  // background-color: white;
-  // position: absolute;
-  // left: 250px;
-
+  position:absolute;
+  top: 25%;
+  left: 6%;
 }
 
 form {
@@ -54,9 +47,8 @@ form {
   // background-color: rgba(128, 128, 128, 0.3);
   height: 400px;
   width: 600px;
-  // border: 1px solid grey;
   border-radius: 50%;
-  box-shadow: 4px 4px 10px grey;
+  box-shadow: 4px 4px 20px black;
   padding: 16px;
   h5 {
     margin: 8px 0 32px 0;
