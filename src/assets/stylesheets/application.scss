@@ -30,6 +30,7 @@ body {
   }
 }
 
+
 .login-page {
   display: flex;
   position:absolute;
@@ -90,25 +91,28 @@ form {
 .images {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 12px;
   grid-auto-rows: minmax(100px, auto);
-  border: 1px solid black;
   border-radius: 8px;
-  height: 550px;
-  width: 550px;
+  height: 540px;
+  width: 540px;
   background-color: white;
   margin-top: 32px;
-  padding: 8px;
+  padding: 12px;
 }
 
 .image {
-  border: 1px solid black;
   border-radius: 8px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   padding: 8px;
   background-color: $yellow;
+  box-shadow: 4px 4px 4px grey;
+  transition: 0.2s;
+  &:hover {
+    opacity: 50%;
+  }
 }
 
 .game {
