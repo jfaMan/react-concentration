@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import themeSong from './music/Login.mp3';
 import Fireplace from './music/Fireplace.mp3';
 import Banjo from './music/Banjo.mp3';
-import Game from './music/Game.mp3';
 // Image imports //
 import Logo from './images/Logo.png';
 import Mute from './images/Mute.png';
@@ -34,11 +33,7 @@ const Login = (props) => {
     handleLogin(name, false);
     const start = new Audio(Banjo);
     start.play();
-    // const gameMusic = new Audio(Game);
-    // const gameMusic = document.querySelector('.game-audio')
-    console.log(audio)
     setTimeout(() => {
-      // gameMusic.play()
       audio.play()
     }, 500);
   }
@@ -76,9 +71,6 @@ const Login = (props) => {
           </audio>
           <audio className="fireplace-audio" loop>
             <source src={Fireplace}></source>
-          </audio>
-          <audio className="game-audio" loop>
-            <source src={Game}></source>
           </audio>
           <img
             id="mute"
