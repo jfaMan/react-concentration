@@ -122,9 +122,24 @@ input[type=text] {
   background-color: $yellow;
   box-shadow: 4px 4px 4px grey;
   transition: 0.2s;
-  &:hover {
-    opacity: 50%;
-  }
+  // &:hover {
+  //   opacity: 50%;
+  // }
+}
+
+.image-blank {
+  background-image: url("../../components/images/Blank.jpg") !important;
+  border-radius: 8px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 8px;
+  background-color: $yellow;
+  box-shadow: 4px 4px 4px grey;
+  transition: 0.2s;
+  // &:hover {
+  //   opacity: 50%;
+  // }
 }
 .game {
   justify-content: center;
