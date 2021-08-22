@@ -22,6 +22,7 @@ const Images = () => {
       card.classList.remove('image-blank')
       card.setAttribute("found", "true")
       cards.push(card)
+      console.log(cards)
       if (cards.length === 2) {
         checkNames(cards[0], cards[1])
       } else {
@@ -31,18 +32,22 @@ const Images = () => {
   }
   
   const checkNames = (card1, card2) => {
-    if (card1 === card2) {
+    if (card1.getAttribute("name") === card2.getAttribute("name")) {
       const correct = new Audio(Correct);
       correct.play();
+      cards.shift();
+      cards.shift();
     } else {
+      const wrong = new Audio(Wrong);
+      wrong.play();
+      setTimeout(3000)
       card1.setAttribute("found", "false")
       card2.setAttribute("found", "false")
       card1.classList.add('image-blank')
       card2.classList.add('image-blank')
       cards.shift()
       cards.shift()
-      const wrong = new Audio(Wrong);
-      wrong.play();
+      return;
     }
   }
 
