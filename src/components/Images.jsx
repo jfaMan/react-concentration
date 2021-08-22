@@ -1,7 +1,8 @@
 import React from 'react';
-import images from './images/index'
-import Correct from './music/Correct.mp3'
-import Wrong from './music/Wrong.mp3'
+import images from './images/index';
+import Correct from './music/Correct.mp3';
+import Wrong from './music/Wrong.mp3';
+import Completed from './music/Completed.mp3';
 
 
 // Each card has either a true/false found value. If a card is found, it is NOT clickable.
@@ -13,6 +14,7 @@ import Wrong from './music/Wrong.mp3'
 const Images = () => {
 
   let cards = [];
+  let totalCards = [];
 
   const handleClick = (event) => {
     const card = event.target
@@ -25,6 +27,7 @@ const Images = () => {
       console.log(cards)
       if (cards.length === 2) {
         checkNames(cards[0], cards[1])
+        checkEndGame()
       } else {
         return;
       }
@@ -37,6 +40,8 @@ const Images = () => {
         const correct = new Audio(Correct);
         correct.play();
       }, 100)
+      totalCards.push(card1)
+      totalCards.push(card2)
       cards.shift();
       cards.shift();
     } else {
@@ -52,6 +57,17 @@ const Images = () => {
       }, 1000)
       cards.shift()
       cards.shift()
+    }
+  }
+
+  const checkEndGame = () => {
+    if (totalCards.length === 16 ) {
+      setTimeout(() => {
+        const completed = new Audio(Completed);
+        completed.play();
+      }, 100)
+    } else {
+      return;
     }
   }
 
