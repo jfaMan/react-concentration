@@ -11,7 +11,8 @@ import Completed from './music/Completed.mp3';
 // Otherwise, they will change back to image-blank.
 // LET'S GO!!!!
 
-const Images = () => {
+const Images = (props) => {
+  const { audio } = props;
 
   let cards = [];
   let totalCards = [];
@@ -62,6 +63,7 @@ const Images = () => {
 
   const checkEndGame = () => {
     if (totalCards.length === 16 ) {
+      audio.volume = 0.3;
       setTimeout(() => {
         const completed = new Audio(Completed);
         completed.play();

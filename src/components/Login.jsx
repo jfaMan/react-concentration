@@ -10,7 +10,7 @@ import Mute from './images/Mute.png';
 import Unmute from './images/Unmute.png';
 
 const Login = (props) => {
-  const {handleLogin} = props;
+  const {handleLogin, audio} = props;
   const [name, setName] = useState('');
   // const [audio, setAudio] = useState('');
 
@@ -34,9 +34,12 @@ const Login = (props) => {
     handleLogin(name, false);
     const start = new Audio(Banjo);
     start.play();
-    const gameMusic = new Audio(Game);
+    // const gameMusic = new Audio(Game);
+    // const gameMusic = document.querySelector('.game-audio')
+    console.log(audio)
     setTimeout(() => {
-      gameMusic.play()
+      // gameMusic.play()
+      audio.play()
     }, 500);
   }
 
@@ -73,6 +76,9 @@ const Login = (props) => {
           </audio>
           <audio className="fireplace-audio" loop>
             <source src={Fireplace}></source>
+          </audio>
+          <audio className="game-audio" loop>
+            <source src={Game}></source>
           </audio>
           <img
             id="mute"
