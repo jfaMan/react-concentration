@@ -32,7 +32,7 @@ const App = () => {
         score={score}
       />
       {showLogin ? <Login handleLogin={handleLogin} audio={audio} /> : null}
-      {/* {showEndGame ? <EndGame /> : null} */}
+      {showEndGame ? <EndGame score={score}/> : null}
       <Game audio={audio} handleEndGame={handleEndGame} />
     </div>
   )

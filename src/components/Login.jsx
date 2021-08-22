@@ -21,7 +21,7 @@ const Login = (props) => {
     const themeSongElement = document.querySelector(".theme-audio");
     themeSongElement.play();
     const fireplaceElement = document.querySelector(".fireplace-audio");
-    fireplaceElement.volume = 0.6;
+    fireplaceElement.volume = 0.5;
     fireplaceElement.play();
     // playIt()
   });
