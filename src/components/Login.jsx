@@ -36,7 +36,6 @@ const Login = (props) => {
     setTimeout(() => {
       audio.setAttribute("loop", "true")
       audio.play()
-      console.log(audio)
     }, 500);
   }
 
@@ -66,7 +65,7 @@ const Login = (props) => {
             <input type="text" onChange={handleChange}/>
           </div>
           <button className='btn btn-warning'>
-            SUBMIT
+            START
           </button>
           <audio className="theme-audio" loop>
             <source src={themeSong}></source>

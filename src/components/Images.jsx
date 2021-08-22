@@ -3,6 +3,7 @@ import images from './images/index';
 import Correct from './music/Correct.mp3';
 import Wrong from './music/Wrong.mp3';
 import Completed from './music/Completed.mp3';
+// import ImagesFinal from './ImagesFinal'
 
 
 // Each card has either a true/false found value. If a card is found, it is NOT clickable.
@@ -12,10 +13,11 @@ import Completed from './music/Completed.mp3';
 // LET'S GO!!!!
 
 const Images = (props) => {
-  const { audio } = props;
+  const { audio, handleEndGame } = props;
 
   let cards = [];
   let totalCards = [];
+  let tries = 0;
 
   const handleClick = (event) => {
     const card = event.target
@@ -58,16 +60,18 @@ const Images = (props) => {
       }, 1000)
       cards.shift()
       cards.shift()
+      tries += 1
     }
   }
-
+  
   const checkEndGame = () => {
     if (totalCards.length === 16 ) {
-      audio.volume = 0.3;
+      audio.volume = 0.5;
       setTimeout(() => {
         const completed = new Audio(Completed);
         completed.play();
       }, 100)
+      handleEndGame(true, tries)
     } else {
       return;
     }
