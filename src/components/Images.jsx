@@ -33,21 +33,25 @@ const Images = () => {
   
   const checkNames = (card1, card2) => {
     if (card1.getAttribute("name") === card2.getAttribute("name")) {
-      const correct = new Audio(Correct);
-      correct.play();
+      setTimeout(() => {
+        const correct = new Audio(Correct);
+        correct.play();
+      }, 100)
       cards.shift();
       cards.shift();
     } else {
-      const wrong = new Audio(Wrong);
-      wrong.play();
-      setTimeout(3000)
-      card1.setAttribute("found", "false")
-      card2.setAttribute("found", "false")
-      card1.classList.add('image-blank')
-      card2.classList.add('image-blank')
+      setTimeout(() => {
+        const wrong = new Audio(Wrong);
+        wrong.play();
+      }, 100)
+      setTimeout(() => {
+        card1.setAttribute("found", "false")
+        card2.setAttribute("found", "false")
+        card1.classList.add('image-blank')
+        card2.classList.add('image-blank')
+      }, 1000)
       cards.shift()
       cards.shift()
-      return;
     }
   }
 
