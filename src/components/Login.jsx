@@ -34,7 +34,9 @@ const Login = (props) => {
     const start = new Audio(Banjo);
     start.play();
     setTimeout(() => {
+      audio.setAttribute("loop", "true")
       audio.play()
+      console.log(audio)
     }, 500);
   }
 

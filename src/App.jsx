@@ -1,6 +1,6 @@
 import React, { useState }  from 'react';
 import Login from './components/Login';
-import EndGame from './components/EndGame';
+// import EndGame from './components/EndGame';
 import Navbar from './components/Navbar';
 import Game from './components/Game';
 import gameMusic from './components/music/Game.mp3';
