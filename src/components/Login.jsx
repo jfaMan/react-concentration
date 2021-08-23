@@ -9,8 +9,8 @@ import Mute from './images/Mute.png';
 import Unmute from './images/Unmute.png';
 
 const Login = (props) => {
-  const {handleLogin, audio} = props;
-  const [name, setName] = useState('');
+  const { handleLogin, audio, calculateScore } = props;
+  const [ name, setName ] = useState('');
   // const [audio, setAudio] = useState('');
 
   // const playIt = () => {
@@ -37,6 +37,7 @@ const Login = (props) => {
       audio.setAttribute("loop", "true")
       audio.play()
     }, 500);
+    calculateScore();
   }
 
   const handleChange = (event) => {

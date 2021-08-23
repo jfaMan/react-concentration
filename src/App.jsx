@@ -9,7 +9,7 @@ const App = () => {
   const [ showLogin, setShowLogin ] = useState(true);
   const [ showEndGame, setShowEndGame ] = useState(false);
   const [ name, setName ] = useState("");
-  const [ score, setScore ] = useState(0);
+  const [ score, setScore ] = useState();
   const [ audio ] = useState(new Audio(gameMusic))
 
   const handleLogin = (name, boolean) => {
@@ -22,7 +22,7 @@ const App = () => {
   }
 
   const calculateScore = () => {
-    setScore(score + 1);
+    setScore(score ? score + 1 : 1);
   }
   return (
     <div>
@@ -30,7 +30,7 @@ const App = () => {
         name={name}
         score={score}
       />
-      {showLogin ? <Login handleLogin={handleLogin} audio={audio} /> : null}
+      {showLogin ? <Login handleLogin={handleLogin} audio={audio} calculateScore={calculateScore}/> : null}
       {showEndGame ? <EndGame score={score}/> : null}
       <Game audio={audio} handleEndGame={handleEndGame} calculateScore={calculateScore} />
     </div>
