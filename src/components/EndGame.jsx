@@ -13,7 +13,7 @@ const EndGame = (props) => {
   return (
     <div className="end-game">
       <img src={Banjo} alt="Banjo Speaking" />
-      <p className="typewriter">{`GREAT JOB! YOU FINISHED THE PUZZLE IN ${score.toString()} TURNS. HOW ABOUT TRYING TO DO IT IN ${(score - 1).toString()}?`}</p>
+      <p className="typewriter">{`GREAT JOB! YOU FINISHED THE PUZZLE WITH ${score.toString()} TRIES REMAINING. HOW ABOUT TRYING TO DO IT WITH ${(score + 1).toString()}?`}</p>
     </div>
   )
 }

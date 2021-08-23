@@ -3,7 +3,7 @@ import images from './images/index';
 import Correct from './music/Correct.mp3';
 import Wrong from './music/Wrong.mp3';
 import Completed from './music/Completed.mp3';
-// import ImagesFinal from './ImagesFinal'
+import GameOver from './music/GameOver.mp3';
 
 
 // Each card has either a true/false found value. If a card is found, it is NOT clickable.
@@ -13,9 +13,9 @@ import Completed from './music/Completed.mp3';
 // LET'S GO!!!!
 
 const Images = (props) => {
+  const { audio, handleEndGame, calculateScore, score } = props;
   const [ characters, setCharacters ] = useState([])
   const [ flippedCards, setFlippedCards ] = useState(0);
-  const { audio, handleEndGame, calculateScore } = props;
 
   useEffect(() => {
     setCharacters(images.sort(() => Math.random() - 0.5))
@@ -26,6 +26,10 @@ const Images = (props) => {
   useEffect(() => {
     checkEndGame()
   }, [flippedCards])
+
+  useEffect(() => {
+    checkEndGame()
+  }, [score])
 
 
   let cards = [];
@@ -80,6 +84,12 @@ const Images = (props) => {
         completed.play();
       }, 100)
       handleEndGame(true)
+    } else if (score === 0) {
+      audio.pause();
+      setTimeout(() => {
+        const gameover = new Audio(GameOver);
+        gameover.play();
+      }, 100)
     } else {
       return;
     }

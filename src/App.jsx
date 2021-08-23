@@ -22,7 +22,7 @@ const App = () => {
   }
 
   const calculateScore = () => {
-    setScore(score ? score + 1 : 1);
+    setScore(score ? score - 1 : 10);
   }
   return (
     <div>
@@ -32,7 +32,12 @@ const App = () => {
       />
       {showLogin ? <Login handleLogin={handleLogin} audio={audio} calculateScore={calculateScore}/> : null}
       {showEndGame ? <EndGame score={score}/> : null}
-      <Game audio={audio} handleEndGame={handleEndGame} calculateScore={calculateScore} />
+      <Game
+        audio={audio}
+        handleEndGame={handleEndGame}
+        calculateScore={calculateScore}
+        score={score} 
+      />
     </div>
   )
 }
