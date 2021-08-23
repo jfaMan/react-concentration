@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import images from './images/index';
 import Correct from './music/Correct.mp3';
 import Wrong from './music/Wrong.mp3';
@@ -115,14 +115,3 @@ const Images = (props) => {
 }
 
 export default Images;
-
-  // Custom PrevState Hook
-  // const usePrevious = (value) => {
-  //   const ref = useRef();
-  //   useEffect(() => {
-  //     ref.current = value;
-  //   });
-  //   return ref.current;
-  // }
-
-  // const prevTries = usePrevious(tries);
