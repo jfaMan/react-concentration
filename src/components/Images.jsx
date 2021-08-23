@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import images from './images/index';
 import Correct from './music/Correct.mp3';
 import Wrong from './music/Wrong.mp3';
@@ -14,16 +14,21 @@ import Completed from './music/Completed.mp3';
 
 const Images = (props) => {
   const [ characters, setCharacters ] = useState([])
-  const { audio, handleEndGame } = props;
+  const [ flippedCards, setFlippedCards ] = useState(0);
+  const { audio, handleEndGame, calculateScore } = props;
 
   useEffect(() => {
     setCharacters(images.sort(() => Math.random() - 0.5))
-    console.log('mounting')
-    return () => console.log('unmounting')
-  }, [])
+    // console.log('mounting')
+    // return () => console.log('unmounting')
+  }, []) // Will run once on mount
+
+  useEffect(() => {
+    checkEndGame()
+  }, [flippedCards])
+
+
   let cards = [];
-  let totalCards = [];
-  let tries = 0;
 
   const handleClick = (event) => {
     const card = event.target
@@ -35,7 +40,6 @@ const Images = (props) => {
       cards.push(card)
       if (cards.length === 2) {
         checkNames(cards[0], cards[1])
-        checkEndGame()
       } else {
         return;
       }
@@ -48,8 +52,7 @@ const Images = (props) => {
         const correct = new Audio(Correct);
         correct.play();
       }, 100)
-      totalCards.push(card1)
-      totalCards.push(card2)
+      setFlippedCards(flippedCards + 2)
       cards.shift();
       cards.shift();
     } else {
@@ -65,18 +68,18 @@ const Images = (props) => {
       }, 1000)
       cards.shift()
       cards.shift()
-      tries += 1
+      calculateScore()
     }
   }
   
   const checkEndGame = () => {
-    if (totalCards.length === 16 ) {
+    if (flippedCards === 16 ) {
       audio.volume = 0.5;
       setTimeout(() => {
         const completed = new Audio(Completed);
         completed.play();
       }, 100)
-      handleEndGame(true, tries)
+      handleEndGame(true)
     } else {
       return;
     }
@@ -102,3 +105,14 @@ const Images = (props) => {
 }
 
 export default Images;
+
+  // Custom PrevState Hook
+  // const usePrevious = (value) => {
+  //   const ref = useRef();
+  //   useEffect(() => {
+  //     ref.current = value;
+  //   });
+  //   return ref.current;
+  // }
+
+  // const prevTries = usePrevious(tries);

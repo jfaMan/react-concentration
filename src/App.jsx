@@ -17,14 +17,13 @@ const App = () => {
     setShowLogin(boolean)
   }
 
-  const handleEndGame = (boolean, tries) => {
+  const handleEndGame = (boolean) => {
     setShowEndGame(boolean)
-    setScore(tries)
   }
 
-  // const calculateScore = () => {
-  //   setScore();
-  // }
+  const calculateScore = () => {
+    setScore(score + 1);
+  }
   return (
     <div>
       <Navbar
@@ -33,7 +32,7 @@ const App = () => {
       />
       {showLogin ? <Login handleLogin={handleLogin} audio={audio} /> : null}
       {showEndGame ? <EndGame score={score}/> : null}
-      <Game audio={audio} handleEndGame={handleEndGame} />
+      <Game audio={audio} handleEndGame={handleEndGame} calculateScore={calculateScore} />
     </div>
   )
 }
