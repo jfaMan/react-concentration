@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import images from './images/index';
 import Correct from './music/Correct.mp3';
 import Wrong from './music/Wrong.mp3';
@@ -13,8 +13,14 @@ import Completed from './music/Completed.mp3';
 // LET'S GO!!!!
 
 const Images = (props) => {
+  const [ characters, setCharacters ] = useState([])
   const { audio, handleEndGame } = props;
 
+  useEffect(() => {
+    setCharacters(images.sort(() => Math.random() - 0.5))
+    console.log('mounting')
+    return () => console.log('unmounting')
+  }, [])
   let cards = [];
   let totalCards = [];
   let tries = 0;
@@ -27,7 +33,6 @@ const Images = (props) => {
       card.classList.remove('image-blank')
       card.setAttribute("found", "true")
       cards.push(card)
-      console.log(cards)
       if (cards.length === 2) {
         checkNames(cards[0], cards[1])
         checkEndGame()
@@ -79,8 +84,7 @@ const Images = (props) => {
 
   return (
     <div className="images">
-      {images
-        .sort(() => Math.random() - 0.5)
+      {characters
         .map((image) => {
           return (
             <div
