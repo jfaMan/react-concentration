@@ -5,11 +5,11 @@ import Fireplace from './music/Fireplace.mp3';
 import Banjo from './music/Banjo.mp3';
 // Image imports //
 import Logo from './images/Logo.png';
-import Mute from './images/Mute.png';
-import Unmute from './images/Unmute.png';
+import MuteImg from './images/Mute.png';
+import UnmuteImg from './images/Unmute.png';
 
 const Login = (props) => {
-  const { handleLogin, calculateScore, score, playerName } = props;
+  const { handleLogin, calculateScore } = props;
   const [ inputName, setInputName ] = useState('');
   const [ loginMusic ] = useState(new Audio(loginSong));
   const [ fireplace ] = useState(new Audio(Fireplace))
@@ -24,8 +24,10 @@ const Login = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     handleLogin(inputName, false);
-    const start = new Audio(Banjo);
-    start.play();
+    loginMusic.pause()
+    fireplace.pause()
+    const gameStart = new Audio(Banjo);
+    gameStart.play();
     calculateScore();
   }
 
@@ -39,7 +41,7 @@ const Login = (props) => {
   }
 
   const audioIconToggle = () => {
-    return !audioOn ? Mute : Unmute;
+    return !audioOn ? MuteImg : UnmuteImg;
   }
 
   return (

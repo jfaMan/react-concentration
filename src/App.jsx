@@ -49,7 +49,7 @@ const App = () => {
         name={playerName}
         score={score}
       />
-      {showLogin ? <Login handleLogin={handleLogin} calculateScore={calculateScore} score={score} playerName={playerName}/> : null}
+      {showLogin ? <Login handleLogin={handleLogin} calculateScore={calculateScore} /> : null}
       {renderGame()}
     </div>
   )
