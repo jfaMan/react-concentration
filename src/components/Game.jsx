@@ -10,6 +10,7 @@ import UnmuteImg from './images/unmute-white.png';
 const Game = (props) => {
   const { gameMusic, playerName, calculateScore, score } = props;
   const [ showEndGame, setShowEndGame ] = useState(false);
+  const [ audioOn, setAudioOn ] = useState(true)
 
   const handleEndGame = (boolean) => {
     setShowEndGame(boolean)
@@ -17,10 +18,11 @@ const Game = (props) => {
 
   const muteAudio = () => {
     gameMusic.muted = !gameMusic.muted ? true : false;
+    setAudioOn(!audioOn);
   }
 
   const audioIconToggle = () => {
-    return !gameMusic.muted ? MuteImg : UnmuteImg;
+    return !audioOn ? MuteImg : UnmuteImg;
   }
 
   return (
