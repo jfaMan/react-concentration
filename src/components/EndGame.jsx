@@ -15,7 +15,7 @@ const EndGame = (props) => {
       const gruntilda = new Audio(GruntildaVoice)
       gruntilda.play();
     }
-  })
+  }, [])
   
   const renderMessage = () => {
     if (score !== 0) {
