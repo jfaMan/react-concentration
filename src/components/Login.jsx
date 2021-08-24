@@ -13,6 +13,7 @@ const Login = (props) => {
   const [ inputName, setInputName ] = useState('');
   const [ loginMusic ] = useState(new Audio(loginSong));
   const [ fireplace ] = useState(new Audio(Fireplace))
+  const [ audioOn, setAudioOn ] = useState(true)
 
   useEffect(() => {
     loginMusic.play()
@@ -34,14 +35,11 @@ const Login = (props) => {
 
   const muteAudio = () => {
     loginMusic.muted = !loginMusic.muted ? true : false;
+    setAudioOn(!audioOn);
   }
 
   const audioIconToggle = () => {
-    if (!score) {
-      return Unmute
-    } else {
-      return !loginMusic.muted ? Mute : Unmute;
-    }
+    return !audioOn ? Mute : Unmute;
   }
 
   return (
