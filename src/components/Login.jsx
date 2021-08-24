@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // Audio imports //
-import themeSong from './music/Login.mp3';
+import loginSong from './music/Login.mp3';
 import Fireplace from './music/Fireplace.mp3';
 import Banjo from './music/Banjo.mp3';
 // Image imports //
@@ -9,49 +9,39 @@ import Mute from './images/Mute.png';
 import Unmute from './images/Unmute.png';
 
 const Login = (props) => {
-  const { handleLogin, gameMusic, calculateScore } = props;
-  const [ name, setName ] = useState('');
-  // const [audio, setAudio] = useState('');
+  const { handleLogin, calculateScore, score, playerName } = props;
+  const [ inputName, setInputName ] = useState('');
+  const [ loginMusic ] = useState(new Audio(loginSong));
+  const [ fireplace ] = useState(new Audio(Fireplace))
 
-  // const playIt = () => {
-  //   const audio = new Audio(themeSong);
-  //   audio.play();
-  // }
   useEffect(() => {
-    const themeSongElement = document.querySelector(".theme-audio");
-    themeSongElement.play();
-    const fireplaceElement = document.querySelector(".fireplace-audio");
-    fireplaceElement.volume = 0.5;
-    fireplaceElement.play();
-    // playIt()
+    loginMusic.play()
+    fireplace.volume = 0.5;
+    fireplace.play();
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const gameComponent = document.querySelector(".game")
-    gameComponent.style.display = gameComponent.style.display === "none" ? "flex" : "none";
-    handleLogin(name, false);
+    handleLogin(inputName, false);
     const start = new Audio(Banjo);
     start.play();
-    setTimeout(() => {
-      gameMusic.setAttribute("loop", "true")
-      gameMusic.play()
-    }, 500);
     calculateScore();
   }
 
   const handleChange = (event) => {
-    setName(event.target.value.toUpperCase());
+    setInputName(event.target.value.toUpperCase());
   }
 
   const muteAudio = () => {
-    const audio = document.querySelector('.theme-audio');
-    audio.muted = !audio.muted ? true : false;
+    loginMusic.muted = !loginMusic.muted ? true : false;
   }
 
   const audioIconToggle = () => {
-    const audio = document.querySelector('.theme-audio');
-    return !audio.muted ? Mute : Unmute;
+    if (!score) {
+      return Unmute
+    } else {
+      return !loginMusic.muted ? Mute : Unmute;
+    }
   }
 
   return (
@@ -68,16 +58,10 @@ const Login = (props) => {
           <button className='btn btn-warning'>
             START
           </button>
-          <audio className="theme-audio" loop>
-            <source src={themeSong}></source>
-          </audio>
-          <audio className="fireplace-audio" loop>
-            <source src={Fireplace}></source>
-          </audio>
           <img
-            id="mute"
+            className="mute-login"
             onClick={muteAudio}
-            src={Unmute}
+            src={audioIconToggle()}
             alt="Mute/Unmute Icon"
           />
         </form>

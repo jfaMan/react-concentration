@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import EndGame from './EndGame'
 import Images from './Images'
-import Logo from './images/Logo.png'
+
+// Image imports //
+import Logo from './images/Logo.png';
+import MuteImg from './images/mute-white.png';
+import UnmuteImg from './images/unmute-white.png';
 
 const Game = (props) => {
   const { gameMusic, playerName, calculateScore, score } = props;
@@ -11,8 +15,16 @@ const Game = (props) => {
     setShowEndGame(boolean)
   }
 
+  const muteAudio = () => {
+    gameMusic.muted = !gameMusic.muted ? true : false;
+  }
+
+  const audioIconToggle = () => {
+    return !gameMusic.muted ? MuteImg : UnmuteImg;
+  }
+
   return (
-    <div className='game' style={{ display: 'none' }}>
+    <div className='game' style={{ display: 'flex' }}>
       <div className="game-left">
         {showEndGame ? <EndGame playerName={playerName} score={score}/> : <div></div>}
         <img className="bounce" src={Logo} alt="Logo" />
@@ -24,6 +36,14 @@ const Game = (props) => {
         score={score}
       />
       <div className="game-right">
+        <div className="game-right-mute-btn">
+          <img
+            className="mute-game"
+            onClick={muteAudio}
+            src={audioIconToggle()}
+            alt="Mute/Unmute Icon"
+          />
+        </div>
       </div>
     </div>
   )

@@ -65,15 +65,20 @@ form {
     width: 160px;
     margin: 16px;
   }
+  .mute-login {
+    height: 16px;
+    cursor: pointer;
+  }
   img {
     height: 100px;
     animation-duration: 3s;
     animation-iteration-count: infinite;
   }
-  #mute {
-    height: 16px;
-    cursor: pointer;
-  }
+}
+
+.mute-game {
+  height: 24px;
+  cursor: pointer;
 }
 
 input[type=text] {
@@ -164,7 +169,10 @@ input[type=text] {
 
 .game-right {
   flex: 1;
-  margin: 64px 32px 0 32px;
+  margin: 32px 32px 0 32px;
+  .game-right-mute-btn {
+    text-align: end;
+  }
 }
 
 .end-game-left {

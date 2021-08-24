@@ -1,41 +1,56 @@
-import React, { useState }  from 'react';
+import React, { useEffect, useState }  from 'react';
 import Login from './components/Login';
-import EndGame from './components/EndGame';
 import Navbar from './components/Navbar';
 import Game from './components/Game';
 import gameMusicMp3 from './components/music/Game.mp3';
 
 const App = () => {
   const [ showLogin, setShowLogin ] = useState(true);
-
-  const [ name, setName ] = useState("");
+  const [ showGame, setShowGame ] = useState(false);
+  const [ playerName, setPlayerName ] = useState("");
   const [ score, setScore ] = useState();
   const [ gameMusic ] = useState(new Audio(gameMusicMp3))
 
+  useEffect(() => {
+    setTimeout(() => {
+      gameMusic.setAttribute("loop", "true")
+      gameMusic.play()
+    }, 500);
+  }, [showGame])
+
   const handleLogin = (name, boolean) => {
-    setName(name)
+    setPlayerName(name)
     setShowLogin(boolean)
+    setShowGame(!boolean)
   }
-
-
 
   const calculateScore = () => {
     setScore(score ? score - 1 : 10);
   }
+
+  const renderGame = () => {
+    if (showGame) {
+      return (
+        <Game
+          gameMusic={gameMusic}
+          playerName={playerName}
+          calculateScore={calculateScore}
+          score={score}
+        />
+      )
+    } else {
+        return null
+    }
+  }
+  
   return (
     <div>
       <Navbar
-        name={name}
+        name={playerName}
         score={score}
       />
-      {showLogin ? <Login handleLogin={handleLogin} gameMusic={gameMusic} calculateScore={calculateScore}/> : null}
-
-      <Game
-        gameMusic={gameMusic}
-        playerName={name}
-        calculateScore={calculateScore}
-        score={score} 
-      />
+      {showLogin ? <Login handleLogin={handleLogin} calculateScore={calculateScore} score={score} playerName={playerName}/> : null}
+      {renderGame()}
     </div>
   )
 }
