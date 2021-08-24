@@ -13,7 +13,7 @@ import GameOver from './music/GameOver.mp3';
 // LET'S GO!!!!
 
 const Images = (props) => {
-  const { audio, handleEndGame, calculateScore, score } = props;
+  const { gameMusic, handleEndGame, calculateScore, score } = props;
   const [ characters, setCharacters ] = useState([])
   const [ flippedCards, setFlippedCards ] = useState(0);
 
@@ -78,7 +78,7 @@ const Images = (props) => {
   
   const checkEndGame = () => {
     if (flippedCards === 16 ) {
-      audio.volume = 0.5;
+      gameMusic.volume = 0.5;
       setTimeout(() => {
         const completed = new Audio(Completed);
         completed.play();
@@ -87,7 +87,7 @@ const Images = (props) => {
         handleEndGame(true)
       }, 4000)
     } else if (score === 0) {
-      audio.pause();
+      gameMusic.pause();
       setTimeout(() => {
         const gameover = new Audio(GameOver);
         gameover.play();

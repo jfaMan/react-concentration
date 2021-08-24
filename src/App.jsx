@@ -3,14 +3,14 @@ import Login from './components/Login';
 import EndGame from './components/EndGame';
 import Navbar from './components/Navbar';
 import Game from './components/Game';
-import gameMusic from './components/music/Game.mp3';
+import gameMusicMp3 from './components/music/Game.mp3';
 
 const App = () => {
   const [ showLogin, setShowLogin ] = useState(true);
   const [ showEndGame, setShowEndGame ] = useState(false);
   const [ name, setName ] = useState("");
   const [ score, setScore ] = useState();
-  const [ audio ] = useState(new Audio(gameMusic))
+  const [ gameMusic ] = useState(new Audio(gameMusicMp3))
 
   const handleLogin = (name, boolean) => {
     setName(name)
@@ -30,10 +30,10 @@ const App = () => {
         name={name}
         score={score}
       />
-      {showLogin ? <Login handleLogin={handleLogin} audio={audio} calculateScore={calculateScore}/> : null}
+      {showLogin ? <Login handleLogin={handleLogin} gameMusic={gameMusic} calculateScore={calculateScore}/> : null}
       {showEndGame ? <EndGame playerName={name} score={score}/> : null}
       <Game
-        audio={audio}
+        gameMusic={gameMusic}
         handleEndGame={handleEndGame}
         calculateScore={calculateScore}
         score={score} 

@@ -9,7 +9,7 @@ import Mute from './images/Mute.png';
 import Unmute from './images/Unmute.png';
 
 const Login = (props) => {
-  const { handleLogin, audio, calculateScore } = props;
+  const { handleLogin, gameMusic, calculateScore } = props;
   const [ name, setName ] = useState('');
   // const [audio, setAudio] = useState('');
 
@@ -34,8 +34,8 @@ const Login = (props) => {
     const start = new Audio(Banjo);
     start.play();
     setTimeout(() => {
-      audio.setAttribute("loop", "true")
-      audio.play()
+      gameMusic.setAttribute("loop", "true")
+      gameMusic.play()
     }, 500);
     calculateScore();
   }
