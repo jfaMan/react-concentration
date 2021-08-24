@@ -111,7 +111,6 @@ input[type=text] {
   height: 600px;
   width: 600px;
   background-color: rgba(255, 255, 255, 0.7);
-  position: absolute;
   margin-top: 32px;
 }
 
@@ -137,7 +136,7 @@ input[type=text] {
   background-repeat: no-repeat;
   background-position: center;
   padding: 8px;
-  background-color: $yellow;
+  background-color: #F8F8F8;
   box-shadow: 4px 4px 4px grey;
   transition: 0.2s;
   cursor: pointer;
@@ -146,34 +145,44 @@ input[type=text] {
   // }
 }
 .game {
-  justify-content: center;
+  display: flex;
+}
+
+.game-left {
+  flex: 1;
+  margin: 64px 32px 0 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   img {
-    width: 200px;
+    width: 240px;
     height: auto;
-    position: absolute;
-    left: 20px;
-    bottom: 24px;
     animation-duration: 3s;
     animation-iteration-count: infinite;
   }
 }
 
-.end-game {
+.game-right {
+  flex: 1;
+  margin: 64px 32px 0 32px;
+}
+
+.end-game-left {
   display: flex;
   align-items: center;
-  position: absolute;
-  top: 200px;
-  left: 24px;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 50px;
-  width: 400px;
-  max-height: 200px;
+  width: auto;
+  max-height: 80px;
   padding: 8px 16px 8px 16px;
   box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.7);
   p {
     color: white;
     margin: 0;
     padding-left: 8px;
+  }
+  img {
+    width: 100px;
   }
 }
 

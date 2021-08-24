@@ -40,7 +40,7 @@ const EndGame = (props) => {
   }
   
   return (
-    <div className="end-game">
+    <div className="end-game-left">
       <img src={score !== 0 ? Banjo : Gruntilda} alt="Character Speaking" />
       {renderMessage()}
     </div>

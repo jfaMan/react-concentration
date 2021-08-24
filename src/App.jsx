@@ -7,7 +7,7 @@ import gameMusicMp3 from './components/music/Game.mp3';
 
 const App = () => {
   const [ showLogin, setShowLogin ] = useState(true);
-  const [ showEndGame, setShowEndGame ] = useState(false);
+
   const [ name, setName ] = useState("");
   const [ score, setScore ] = useState();
   const [ gameMusic ] = useState(new Audio(gameMusicMp3))
@@ -17,9 +17,7 @@ const App = () => {
     setShowLogin(boolean)
   }
 
-  const handleEndGame = (boolean) => {
-    setShowEndGame(boolean)
-  }
+
 
   const calculateScore = () => {
     setScore(score ? score - 1 : 10);
@@ -31,10 +29,10 @@ const App = () => {
         score={score}
       />
       {showLogin ? <Login handleLogin={handleLogin} gameMusic={gameMusic} calculateScore={calculateScore}/> : null}
-      {showEndGame ? <EndGame playerName={name} score={score}/> : null}
+
       <Game
         gameMusic={gameMusic}
-        handleEndGame={handleEndGame}
+        playerName={name}
         calculateScore={calculateScore}
         score={score} 
       />
