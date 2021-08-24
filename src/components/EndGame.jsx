@@ -21,20 +21,20 @@ const EndGame = (props) => {
     if (score !== 0) {
       if (playerName) {
         return (
-          <p>
+          <p className="typewriter">
             GREAT JOB, {playerName}! YOU FINISHED THE PUZZLE WITH {score.toString()} TRIES REMAINING. HOW ABOUT TRYING TO DO IT WITH {(score + 1).toString()}?
           </p>
         );
       } else {
         return (
-          <p>
+          <p className="typewriter">
             GREAT JOB! YOU FINISHED THE PUZZLE WITH {score.toString()} TRIES REMAINING. HOW ABOUT TRYING TO DO IT WITH {(score + 1).toString()}?
           </p>
         );
       }
     } else {
       return (
-        <p>HA! GAME OVER. I KNEW IT WOULD BE TOO DIFFICULT FOR YOU. TRY AGAIN.</p>
+        <p className="typewriter">HA! GAME OVER. I KNEW IT WOULD BE TOO DIFFICULT FOR YOU. TRY AGAIN.</p>
       );
     }
   }
