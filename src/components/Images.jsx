@@ -83,13 +83,18 @@ const Images = (props) => {
         const completed = new Audio(Completed);
         completed.play();
       }, 100)
-      handleEndGame(true)
+      setTimeout(() => {
+        handleEndGame(true)
+      }, 4000)
     } else if (score === 0) {
       audio.pause();
       setTimeout(() => {
         const gameover = new Audio(GameOver);
         gameover.play();
       }, 100)
+      setTimeout(() => {
+        handleEndGame(true)
+      }, 4000)
     } else {
       return;
     }

@@ -31,7 +31,7 @@ const App = () => {
         score={score}
       />
       {showLogin ? <Login handleLogin={handleLogin} audio={audio} calculateScore={calculateScore}/> : null}
-      {showEndGame ? <EndGame score={score}/> : null}
+      {showEndGame ? <EndGame playerName={name} score={score}/> : null}
       <Game
         audio={audio}
         handleEndGame={handleEndGame}
