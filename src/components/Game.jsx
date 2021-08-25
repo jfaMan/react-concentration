@@ -28,7 +28,7 @@ const Game = (props) => {
   return (
     <div className='game' style={{ display: 'flex' }}>
       <div className="game-left">
-        {showEndGame ? <EndGame playerName={playerName} score={score}/> : <div></div>}
+        {showEndGame ? <EndGame playerName={playerName} score={score} endGame={handleEndGame}/> : <div></div>}
         <img className="bounce" src={Logo} alt="Logo" />
       </div>
       <Images

@@ -209,6 +209,19 @@ input[type=text] {
 }
 
 .end-game-left {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  .btn {
+    width: 200px;
+    height: 60px;
+    border-radius: 32px;
+  }
+}
+
+.end-game-left-message {
   display: flex;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
