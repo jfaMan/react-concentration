@@ -25,10 +25,12 @@ const Images = (props) => {
 
   useEffect(() => {
     checkEndGame()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flippedCards])
 
   useEffect(() => {
     checkEndGame()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score])
 
 

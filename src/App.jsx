@@ -16,6 +16,7 @@ const App = () => {
       gameMusic.setAttribute("loop", "true")
       gameMusic.play()
     }, 500);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showGame])
 
   const handleLogin = (name, boolean) => {
