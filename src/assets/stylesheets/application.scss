@@ -24,7 +24,7 @@ body {
 .navbar {
   height: 60px;
   border-bottom: 1px solid grey;
-  box-shadow: 4px 4px 20px black;
+  box-shadow: 0 4px 20px black;
   display: flex;
   justify-content: space-between;
   background-color: #73A1F6;
@@ -163,7 +163,7 @@ input[type=text] {
   transition: 0.2s;
   cursor: pointer;
   // &:hover {
-  //   opacity: 50%;
+  //   border: 1px solid grey;
   // }
 }
 
@@ -199,6 +199,19 @@ input[type=text] {
     animation-duration: 3s;
     animation-iteration-count: infinite;
   }
+  .end-game-left {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    .btn {
+      width: 200px;
+      height: 60px;
+      border-radius: 32px;
+      box-shadow: 4px 4px 20px black;
+    }
+  }
 }
 
 .game-right {
@@ -206,19 +219,6 @@ input[type=text] {
   margin: 32px 32px 0 32px;
   .game-right-mute-btn {
     text-align: end;
-  }
-}
-
-.end-game-left {
-  height: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  .btn {
-    width: 200px;
-    height: 60px;
-    border-radius: 32px;
   }
 }
 

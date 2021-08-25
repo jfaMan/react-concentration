@@ -11,7 +11,7 @@ const Game = (props) => {
   const { gameMusic, playerName, calculateScore, score, restartScore } = props;
   const [ showEndGame, setShowEndGame ] = useState(false);
   const [ audioOn, setAudioOn ] = useState(true);
-  const [ imagesKey, setImagesKey ] = useState(1);
+  const [ imagesKey, setImagesKey ] = useState(10);
 
   const handleEndGame = (boolean) => {
     setShowEndGame(boolean)
@@ -23,7 +23,7 @@ const Game = (props) => {
     gameMusic.setAttribute("loop", "true")
     gameMusic.play()
     restartScore()
-    setImagesKey(imagesKey + 1)
+    setImagesKey(imagesKey - 1)
   }
 
   const muteAudio = () => {
@@ -38,7 +38,7 @@ const Game = (props) => {
   return (
     <div className='game' style={{ display: 'flex' }}>
       <div className="game-left">
-        {showEndGame ? <EndGame playerName={playerName} score={score} endGame={handleEndGame} refreshImages={refreshImages}/> : <div></div>}
+        {showEndGame ? <EndGame playerName={playerName} score={score} endGame={handleEndGame} refreshImages={refreshImages} /> : <div></div>}
         <img className="bounce" src={Logo} alt="Logo" />
       </div>
       <Images

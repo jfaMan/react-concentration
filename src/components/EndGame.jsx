@@ -12,7 +12,7 @@ const EndGame = (props) => {
   useEffect(() => {
     score !== 0 ? banjo.play() : gruntilda.play();
   }, [])
-
+  
   const handleClick = () => {
     score === 0 ? gruntilda.pause() : banjo.pause();
     endGame(false)
