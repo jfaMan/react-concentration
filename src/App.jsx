@@ -28,6 +28,10 @@ const App = () => {
     setScore(score ? score - 1 : 10);
   }
 
+  const restartScore = () => {
+    setScore(10);
+  }
+
   const renderGame = () => {
     if (showGame) {
       return (
@@ -36,6 +40,7 @@ const App = () => {
           playerName={playerName}
           calculateScore={calculateScore}
           score={score}
+          restartScore={restartScore}
         />
       )
     } else {

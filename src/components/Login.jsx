@@ -27,8 +27,8 @@ const Login = (props) => {
     handleLogin(inputName, false);
     loginMusic.pause()
     fireplace.pause()
-    const gameStart = new Audio(Banjo);
-    gameStart.play();
+    const gameStartBanjoVoice = new Audio(Banjo);
+    gameStartBanjoVoice.play();
     calculateScore();
   }
 

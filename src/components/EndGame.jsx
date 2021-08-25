@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Banjo from './images/EndGameBanjo.gif';
 import Gruntilda from './images/EndGameGruntilda.gif';
 import BanjoVoice from './music/BanjoSpeaking.mp3';
-import GruntildaVoice from './music/GruntildaSpeaking.mp3'
+import GruntildaVoice from './music/GruntildaSpeaking.mp3';
 
 const EndGame = (props) => {
-  const {playerName, score, endGame} = props;
+  const {playerName, score, endGame, refreshImages} = props;
   const [ banjo ] = useState(new Audio(BanjoVoice));
   const [ gruntilda ] = useState(new Audio(GruntildaVoice));
 
@@ -16,6 +16,7 @@ const EndGame = (props) => {
   const handleClick = () => {
     score === 0 ? gruntilda.pause() : banjo.pause();
     endGame(false)
+    refreshImages()
   }
   const renderMessage = () => {
     if (score !== 0) {

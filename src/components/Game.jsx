@@ -8,12 +8,22 @@ import MuteImg from './images/mute-white.png';
 import UnmuteImg from './images/unmute-white.png';
 
 const Game = (props) => {
-  const { gameMusic, playerName, calculateScore, score } = props;
+  const { gameMusic, playerName, calculateScore, score, restartScore } = props;
   const [ showEndGame, setShowEndGame ] = useState(false);
-  const [ audioOn, setAudioOn ] = useState(true)
+  const [ audioOn, setAudioOn ] = useState(true);
+  const [ imagesKey, setImagesKey ] = useState(1);
 
   const handleEndGame = (boolean) => {
     setShowEndGame(boolean)
+  }
+
+  const refreshImages = () => {
+    gameMusic.currentTime = 0;
+    gameMusic.volume = 1;
+    gameMusic.setAttribute("loop", "true")
+    gameMusic.play()
+    restartScore()
+    setImagesKey(imagesKey + 1)
   }
 
   const muteAudio = () => {
@@ -28,15 +38,16 @@ const Game = (props) => {
   return (
     <div className='game' style={{ display: 'flex' }}>
       <div className="game-left">
-        {showEndGame ? <EndGame playerName={playerName} score={score} endGame={handleEndGame}/> : <div></div>}
+        {showEndGame ? <EndGame playerName={playerName} score={score} endGame={handleEndGame} refreshImages={refreshImages}/> : <div></div>}
         <img className="bounce" src={Logo} alt="Logo" />
       </div>
       <Images
-        gameMusic={gameMusic}
-        handleEndGame={handleEndGame}
-        calculateScore={calculateScore}
-        score={score}
-      />
+          key={imagesKey}
+          gameMusic={gameMusic}
+          handleEndGame={handleEndGame}
+          calculateScore={calculateScore}
+          score={score}
+        />
       <div className="game-right">
         <div className="game-right-mute-btn">
           <img
