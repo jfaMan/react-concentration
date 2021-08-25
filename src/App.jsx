@@ -2,14 +2,14 @@ import React, { useEffect, useState }  from 'react';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Game from './components/Game';
-import gameMusicMp3 from './components/music/Game.mp3';
+import GameMusicMp3 from './components/music/GameMusicMp3.mp3';
 
 const App = () => {
   const [ showLogin, setShowLogin ] = useState(true);
   const [ showGame, setShowGame ] = useState(false);
   const [ playerName, setPlayerName ] = useState("");
   const [ score, setScore ] = useState();
-  const [ gameMusic ] = useState(new Audio(gameMusicMp3))
+  const [ gameMusic ] = useState(new Audio(GameMusicMp3))
 
   useEffect(() => {
     setTimeout(() => {

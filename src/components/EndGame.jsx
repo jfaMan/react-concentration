@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Banjo from './images/EndGameBanjo.gif';
 import Gruntilda from './images/EndGameGruntilda.gif';
-import BanjoVoice from './music/BanjoSpeaking.mp3';
-import GruntildaVoice from './music/GruntildaSpeaking.mp3';
+import BanjoVoice from './music/BanjoVoice.mp3';
+import GruntildaVoice from './music/GruntildaVoice.mp3';
 
 const EndGame = (props) => {
   const {playerName, score, endGame, refreshImages} = props;

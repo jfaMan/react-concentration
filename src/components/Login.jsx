@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // Audio imports //
-import loginSong from './music/Login.mp3';
+import Login from './music/Login.mp3';
 import Fireplace from './music/Fireplace.mp3';
 import Banjo from './music/Banjo.mp3';
 // Image imports //
@@ -12,7 +12,7 @@ import Instructions from './images/Instructions.png'
 const Login = (props) => {
   const { handleLogin, calculateScore } = props;
   const [ inputName, setInputName ] = useState('');
-  const [ loginMusic ] = useState(new Audio(loginSong));
+  const [ loginMusic ] = useState(new Audio(Login));
   const [ fireplace ] = useState(new Audio(Fireplace))
   const [ audioOn, setAudioOn ] = useState(true)
 

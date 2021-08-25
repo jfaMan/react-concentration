@@ -4,8 +4,8 @@ import Images from './Images'
 
 // Image imports //
 import Logo from './images/Logo.png';
-import MuteImg from './images/mute-white.png';
-import UnmuteImg from './images/unmute-white.png';
+import MuteImg from './images/MuteWhite.png';
+import UnmuteImg from './images/UnmuteWhite.png';
 
 const Game = (props) => {
   const { gameMusic, playerName, calculateScore, score, restartScore } = props;
