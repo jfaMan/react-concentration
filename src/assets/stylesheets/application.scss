@@ -8,6 +8,7 @@
 $yellow: #FDF679;
 $green: #8EE190;
 $blue: #73A1F6;
+$white: #F8F8F8;
 
 // Styling //
 
@@ -33,12 +34,44 @@ body {
   }
 }
 
+.login-screen {
+  display: flex;
+  align-items: center;
+  height: 630px;
+}
 
 .login-page {
+  flex: 1;
   display: flex;
-  position:absolute;
-  top: 25%;
-  left: 6%;
+  justify-content: center;
+  margin-top: 32px;
+  padding: 12px;
+  // position:absolute;
+  // top: 25%;
+  // left: 6%;
+}
+
+.login-instructions {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  .instructions {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50px;
+    width: 500px;
+    padding: 16px 32px 16px 32px;
+    // margin: 0 32px 0 32px;
+    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: $white;
+    p {
+      margin: 16px 0 0 0;
+      font-size: 16px;
+    }
+    img {
+      width: 200px;
+    }
+  }
 }
 
 form {
@@ -141,7 +174,7 @@ input[type=text] {
   background-repeat: no-repeat;
   background-position: center;
   padding: 8px;
-  background-color: #F8F8F8;
+  background-color: $white;
   box-shadow: 4px 4px 4px grey;
   transition: 0.2s;
   cursor: pointer;
@@ -185,7 +218,7 @@ input[type=text] {
   box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.7);
   text-align: left;
   p {
-    color: white;
+    color: $white;
     margin: 0;
     padding-left: 8px;
   }

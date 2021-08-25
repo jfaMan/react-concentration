@@ -7,6 +7,7 @@ import Banjo from './music/Banjo.mp3';
 import Logo from './images/Logo.png';
 import MuteImg from './images/Mute.png';
 import UnmuteImg from './images/Unmute.png';
+import Instructions from './images/Instructions.png'
 
 const Login = (props) => {
   const { handleLogin, calculateScore } = props;
@@ -45,7 +46,7 @@ const Login = (props) => {
   }
 
   return (
-    <div className="wrapper">
+    <div className="login-screen">
       <div className="login-page">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -65,6 +66,13 @@ const Login = (props) => {
             alt="Mute/Unmute Icon"
           />
         </form>
+      </div>
+      <div className="login-instructions">
+        <div className="instructions">
+          <h1>INSTRUCTIONS</h1>
+          <img src={Instructions} alt="Banjo and Kazooie" />
+          <p>GRUNTY'S FURNACE FUN ISN'T OVER! HELP EVERYONE'S FAVOURITE BEAR AND BIRD BY COMPLETING GRUNTILDA'S CONCENTRATION GAME. YOU'LL HAVE A LIMITED AMOUNT OF TRIES TO TRY AND PAIR UP ALL THE MATCHING CARDS.</p>
+        </div>
       </div>
     </div>
   )
