@@ -16,9 +16,10 @@ body {
   background-color: $yellow;
   font-family: banjoKazooie;
   background-image: url("../../components/images/Background.jpg");
-  background-position-y: 6%;
+  background-position: 20% 20%;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .navbar {
