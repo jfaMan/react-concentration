@@ -19,12 +19,17 @@ const EndGame = (props) => {
     endGame(false)
     refreshImages()
   }
+
+  const finalScore = () => {
+    return score * 10
+  }
+
   const renderMessage = () => {
     if (score !== 0) {
       if (playerName) {
         return (
           <p className="typewriter">
-            GREAT JOB, {playerName}! YOU FINISHED THE PUZZLE WITH {score.toString()} TRIES REMAINING. HOW ABOUT TRYING TO DO IT WITH {(score + 1).toString()}?
+            GREAT JOB, {playerName}! YOU FINISHED THE PUZZLE WITH A SCORE OF {finalScore.toString()}. HOW ABOUT TRYING TO DO IT WITH {(finalScore + 10).toString()}?
           </p>
         );
       } else {
@@ -36,7 +41,7 @@ const EndGame = (props) => {
       }
     } else {
       return (
-        <p className="typewriter">HA! GAME OVER. I KNEW IT WOULD BE TOO DIFFICULT FOR YOU. TRY AGAIN.</p>
+        <p className="typewriter">HA! GAME OVER. I KNEW MY CHALLENGE WOULD BE TOO DIFFICULT FOR YOU. TRY AGAIN IF YOU DARE.</p>
       );
     }
   }
@@ -47,6 +52,7 @@ const EndGame = (props) => {
         <img src={score !== 0 ? Banjo : Gruntilda} alt="Character Speaking" />
         {renderMessage()}
       </div>
+      <h1>{score !== 0 ? `Score: ${finalScore()}` : ''}</h1>
       <button
         onClick={handleClick}
         className="btn btn-warning"
