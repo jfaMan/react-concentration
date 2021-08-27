@@ -51,7 +51,7 @@ const Login = (props) => {
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <img className="bounce" src={Logo} alt="Logo" />
-            <h5>CONCENTRATION GAME</h5>
+            <h5>CONCENTRATION CHALLENGE</h5>
             <label>ENTER YOUR NAME</label>
             <br />
             <input type="text" onChange={handleChange}/>
@@ -71,8 +71,8 @@ const Login = (props) => {
         <div className="instructions">
           <h1>INSTRUCTIONS</h1>
           <img src={Instructions} alt="Banjo and Kazooie" />
-          <p>GRUNTY'S BACK! HELP EVERYONE'S FAVOURITE BEAR AND BIRD COMPLETE GRUNTILDA'S CONCENTRATION GAME. YOU'LL HAVE A NUMBER OF TRIES TO TRY AND PAIR UP ALL THE MATCHING CARDS.</p>
-          <p>BUT BE CAREFUL BECAUSE IF THAT TRACKER REACHES 0, IT'S GAME OVER!</p>
+          <p>GRUNTY'S BACK! HELP EVERYONE'S FAVOURITE BEAR AND BIRD COMPLETE GRUNTILDA'S CONCENTRATION CHALLENGE.</p>
+          <p>YOU'LL HAVE A NUMBER OF ATTEMPTS TO TRY AND PAIR UP ALL THE MATCHING CARDS. BUT BE CAREFUL BECAUSE IF THE NUMBER REACHES 0, IT'S GAME OVER!</p>
         </div>
       </div>
     </div>
