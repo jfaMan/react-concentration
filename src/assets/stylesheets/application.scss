@@ -24,6 +24,7 @@ body {
 
 .navbar {
   height: 60px;
+  width: 100%;
   border-bottom: 1px solid grey;
   box-shadow: 0 4px 20px black;
   display: flex;
@@ -45,48 +46,42 @@ body {
     justify-content: center;
     margin-top: 32px;
     padding: 12px;
-    // position:absolute;
-    // top: 25%;
-    // left: 6%;
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: #8EE190;
+      height: 400px;
+      width: 600px;
+      border-radius: 50%;
+      box-shadow: 4px 4px 20px black;
+      padding: 16px;
+      h5 {
+        margin: 8px 0 32px 0;
+        color: #E8CF00;
+        text-shadow: 1px 1px 5px black;
+      }
+      button {
+        width: 160px;
+        margin: 16px;
+        border-radius: 8px !important;
+      }
+      .mute-login {
+        height: 16px;
+        cursor: pointer;
+      }
+      img {
+        height: 100px;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+      }
+    }
   }
 }
 
 
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: #8EE190;
-  height: 400px;
-  width: 600px;
-  border-radius: 50%;
-  box-shadow: 4px 4px 20px black;
-  padding: 16px;
-  h5 {
-    margin: 8px 0 32px 0;
-    color: #E8CF00;
-    text-shadow: 1px 1px 5px black;
-  }
-  input {
-    margin-left: 8px;
-  }
-  button {
-    width: 160px;
-    margin: 16px;
-    border-radius: 8px !important;
-  }
-  .mute-login {
-    height: 16px;
-    cursor: pointer;
-  }
-  img {
-    height: 100px;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-  }
-}
 
 .login-instructions {
   flex: 1;
@@ -268,3 +263,71 @@ input[type=text] {
 //   from, to { border-color: transparent }
 //   50% { border-color: orange; }
 // }
+
+@media (max-width: 576px) {
+  .navbar {
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid grey;
+    box-shadow: 0 4px 20px black;
+    display: flex;
+    justify-content: space-between;
+    background-color: #73A1F6;
+    padding-right: 24px;
+    img {
+      height: auto;
+      width: 60px;
+    }
+  }
+  .login-screen {
+    display: block;
+    height: 630px;
+    .login-page {
+      margin-top: 12px;
+      form {
+        height: 300px;
+        width: 450px;
+        h5 {
+          margin: 8px 0 16px 0;
+        }
+        button {
+          width: 120px;
+          height: 36px;
+          margin: 0 0 8px 0;
+        }
+        .mute-login {
+          position: absolute;
+          bottom: 442px;
+          height: 12px;
+        }
+        img {
+          height: 68px;
+          animation-duration: 0s;
+        }
+      }
+    }
+    .login-instructions {
+      flex: 1;
+      .instructions {
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 50px;
+        width: 375px;
+        padding: 16px 32px 16px 32px;
+        margin: 24px;
+        box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.7);
+        text-align: center;
+        color: $white;
+        h1 {
+          font-size: 28px;
+        }
+        p {
+          margin: 16px 0 0 0;
+          font-size: 14px;
+        }
+        img {
+          width: 125px;
+        }
+      }
+    }
+  }
+}
