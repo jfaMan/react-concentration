@@ -19,10 +19,10 @@ const EndGame = (props) => {
     if (score !== 0) {
       banjo.play()
       setTimeout(() => {
-        setMessageWinA(<p className="typewriter">THE PUZZLE WITH A SCORE OF {finalScore}.</p>)
+        setMessageWinA(<p className="typewriter">THE CHALLENGE WITH A SCORE OF {finalScore}.</p>)
       }, 3500)
       setTimeout(() => {
-        setMessageWinB(<p className="typewriter">HOW ABOUT TRYING TO DO IT WITH {(finalScore + 10)}?</p>)
+        setMessageWinB(<p className="typewriter">HOW ABOUT TRYING FOR {(finalScore + 10)} NEXT?</p>)
       }, 7500)
     } else {
       gruntilda.play();
