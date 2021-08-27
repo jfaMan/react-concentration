@@ -285,6 +285,7 @@ input[type=text] {
     .login-page {
       margin-top: 12px;
       form {
+        justify-content: flex-end;
         height: 300px;
         width: 450px;
         h5 {
@@ -296,12 +297,12 @@ input[type=text] {
           margin: 0 0 8px 0;
         }
         .mute-login {
-          position: absolute;
-          bottom: 442px;
+          // position: absolute;
+          // bottom: 442px;
           height: 12px;
         }
         img {
-          height: 68px;
+          height: 72px;
           animation-duration: 0s;
         }
       }
