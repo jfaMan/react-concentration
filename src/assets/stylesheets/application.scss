@@ -352,7 +352,7 @@ input[type=text] {
     .images {
       width: auto;
       height: auto;
-      margin: 0 8px 0 8px;
+      margin: 16px 8px 16px 8px;
     }
     .game-left {
       align-items: center;
@@ -361,6 +361,8 @@ input[type=text] {
     .bounce {
       animation-name: bounce-mobile;
       order: 0;
+      margin-top: 24px;
+      // margin-bottom: 8px;
     }
     .game-right {
       height: auto;
@@ -370,15 +372,16 @@ input[type=text] {
       // justify-content: flex-end;
       .game-right-mute-btn {
         text-align: center;
+        padding: 16px;
       }
     }
     .end-game-left {
       order: 1;
-      margin-top: 32px;
-      max-height: 300px;
-      .final-score {
-        display: none;
-      }
+      margin-top: 40px;
+      height: 300px;
+      // .final-score {
+      //   display: none;
+      // }
       .end-game-left-message {
         width: 100%;
         padding: 4px 16px 4px 16px;

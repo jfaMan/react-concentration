@@ -110,8 +110,8 @@ const EndGame = (props) => {
       </div>
       {/* {messageWinC} */}
       {/* {messageWinD} */}
-      <div className="final-score" style={ score !== 0 ? {backgroundColor: '#8EE190'} : null}>
-        <h1>{score !== 0 ? `SCORE = ${finalScore}` : ''}</h1>
+      <div className="final-score" style={ score !== 0 ? {backgroundColor: '#8EE190'} : {backgroundColor: '#F8F8F8'}}>
+        <h1>{score !== 0 ? `SCORE = ${finalScore}` : 'GAME OVER'}</h1>
       </div>
       <button onClick={handleClick} className="btn btn-warning">
         {score === 0 ? 'RETRY' : 'PLAY AGAIN'}

@@ -7,7 +7,7 @@ const Navbar = (props) => {
     <div className="navbar">
       <img src={NavbarLogo} alt="Logo" />
       {score >= 0 ? <div className="score">TRIES REMAINING: {score}</div> : null}
-      {score >= 0 ? <div className="name">PLAYER NAME: {name}</div> : null}
+      <div className="name">PLAYER NAME: {name}</div>
     </div>
   )
 }
