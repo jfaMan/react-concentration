@@ -112,7 +112,7 @@ const Images = (props) => {
               name={image.name}
               style={{ backgroundImage: `url(${image.pic})` }}
               found="false"
-              onClick={handleClick}
+              onClick={score !== 0 ? handleClick : null}
             />
           )
         })

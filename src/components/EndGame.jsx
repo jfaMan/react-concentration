@@ -10,7 +10,7 @@ import KazooieVoice from './music/KazooieVoice.mp3';
 // import Typewriter from 'typewriter-effect';
 
 const EndGame = (props) => {
-  const {playerName, score, endGame, refreshImages} = props;
+  const {playerName, score, handleEndGame, refreshImages} = props;
   const [ banjo ] = useState(new Audio(BanjoVoice));
   const [ gruntilda ] = useState(new Audio(GruntildaVoice));
   const [ kazooie ] = useState(new Audio(KazooieVoice));
@@ -68,7 +68,7 @@ const EndGame = (props) => {
   
   const handleClick = () => {
     score === 0 ? gruntilda.pause() : banjo.pause();
-    endGame(false)
+    handleEndGame(false)
     refreshImages()
   }
 
@@ -99,7 +99,7 @@ const EndGame = (props) => {
   //     messageWinC
   //     messageWinD
   // }
-
+  
   return (
     <div className="end-game-left">
       <div className="end-game-left-message">
