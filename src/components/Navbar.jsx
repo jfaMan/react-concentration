@@ -6,8 +6,8 @@ const Navbar = (props) => {
   return (
     <div className="navbar">
       <img src={NavbarLogo} alt="Logo" />
-      <div className="score">TRIES REMAINING: {score}</div>
-      <div className="name">PLAYER NAME: {name}</div>
+      {score >= 0 ? <div className="score">TRIES REMAINING: {score}</div> : null}
+      {score >= 0 ? <div className="name">PLAYER NAME: {name}</div> : null}
     </div>
   )
 }
