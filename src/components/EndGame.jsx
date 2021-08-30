@@ -57,7 +57,7 @@ const EndGame = (props) => {
         setMessageLoseA(<p className="typewriter">WOULD BE TOO DIFFICULT FOR YOU.</p>)
       }, 3500)
       setTimeout(() => {
-        setMessageLoseB(<p className="typewriter">TRY AGAIN IF YOU DARE.</p>)
+        setMessageLoseB(<p className="typewriter">TRY AGAIN IF YOU DARE!</p>)
       }, 7000)
       setTimeout(() => {
         setGruntySpeaking(false)

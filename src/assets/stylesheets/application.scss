@@ -136,6 +136,16 @@ input[type=text] {
   100% { transform: scale(1,1)      translateY(0); }
 }
 
+@keyframes bounce-mobile {
+  0%   { transform: scale(1,1)      translateY(0); }
+  10%  { transform: scale(1.1,.9)   translateY(0); }
+  30%  { transform: scale(.9,1.1)   translateY(-24px); }
+  50%  { transform: scale(1.05,.95) translateY(0); }
+  57%  { transform: scale(1,1)      translateY(-7px); }
+  64%  { transform: scale(1,1)      translateY(0); }
+  100% { transform: scale(1,1)      translateY(0); }
+}
+
 .images {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -332,6 +342,46 @@ input[type=text] {
         img {
           width: 125px;
         }
+      }
+    }
+  }
+  .game {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    .images {
+      width: auto;
+      height: auto;
+      margin: 0 8px 0 8px;
+    }
+    .game-left {
+      align-items: center;
+      margin: 32px 16px 32px 16px;
+    }
+    .bounce {
+      animation-name: bounce-mobile;
+      order: 0;
+    }
+    .game-right {
+      height: auto;
+      margin: 16px;
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: flex-end;
+      .game-right-mute-btn {
+        text-align: center;
+      }
+    }
+    .end-game-left {
+      order: 1;
+      margin-top: 32px;
+      max-height: 300px;
+      .final-score {
+        display: none;
+      }
+      .end-game-left-message {
+        width: 100%;
+        padding: 4px 16px 4px 16px;
       }
     }
   }
