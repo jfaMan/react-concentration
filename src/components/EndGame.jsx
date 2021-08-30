@@ -3,22 +3,22 @@ import Banjo from './images/EndGameBanjo.gif';
 import BanjoStop from './images/EndGameBanjoStop.gif';
 import Gruntilda from './images/EndGameGruntilda.gif';
 import GruntildaStop from './images/EndGameGruntildaStop.gif';
-import Kazooie from './images/EndGameKazooie.gif';
+// import Kazooie from './images/EndGameKazooie.gif';
 import BanjoVoice from './music/BanjoVoice.mp3';
 import GruntildaVoice from './music/GruntildaVoice.mp3';
-import KazooieVoice from './music/KazooieVoice.mp3';
+// import KazooieVoice from './music/KazooieVoice.mp3';
 // import Typewriter from 'typewriter-effect';
 
 const EndGame = (props) => {
   const {playerName, score, handleEndGame, refreshImages} = props;
   const [ banjo ] = useState(new Audio(BanjoVoice));
   const [ gruntilda ] = useState(new Audio(GruntildaVoice));
-  const [ kazooie ] = useState(new Audio(KazooieVoice));
+  // const [ kazooie ] = useState(new Audio(KazooieVoice));
   const [ finalScore ] = useState(score * 10)
   const [ messageWinA, setMessageWinA ] = useState();
   const [ messageWinB, setMessageWinB ] = useState();
-  const [ messageWinC, setMessageWinC ] = useState();
-  const [ messageWinD, setMessageWinD ] = useState();
+  // const [ messageWinC, setMessageWinC ] = useState();
+  // const [ messageWinD, setMessageWinD ] = useState();
   const [ messageLoseA, setMessageLoseA ] = useState();
   const [ messageLoseB, setMessageLoseB ] = useState();
   const [ banjoSpeaking, setBanjoSpeaking ] = useState(true);
