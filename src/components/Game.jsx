@@ -39,7 +39,7 @@ const Game = (props) => {
     <div className='game' style={{ display: 'flex' }}>
       <div className="game-left">
         {showEndGame ? <EndGame playerName={playerName} score={score} handleEndGame={handleEndGame} refreshImages={refreshImages} /> : <div></div>}
-        <img className="bounce" src={Logo} alt="Logo" />
+        <img className={score !== 0 ? "bounce" : ""} src={Logo} alt="Logo" />
       </div>
       <Images
           key={imagesKey}
