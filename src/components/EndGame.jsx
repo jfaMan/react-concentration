@@ -1,19 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import Banjo from './images/EndGameBanjo.gif';
+import BanjoStop from './images/EndGameBanjoStop.gif';
 import Gruntilda from './images/EndGameGruntilda.gif';
+import GruntildaStop from './images/EndGameGruntildaStop.gif';
+import Kazooie from './images/EndGameKazooie.gif';
 import BanjoVoice from './music/BanjoVoice.mp3';
 import GruntildaVoice from './music/GruntildaVoice.mp3';
+import KazooieVoice from './music/KazooieVoice.mp3';
 // import Typewriter from 'typewriter-effect';
 
 const EndGame = (props) => {
   const {playerName, score, endGame, refreshImages} = props;
   const [ banjo ] = useState(new Audio(BanjoVoice));
   const [ gruntilda ] = useState(new Audio(GruntildaVoice));
+  const [ kazooie ] = useState(new Audio(KazooieVoice));
   const [ finalScore ] = useState(score * 10)
   const [ messageWinA, setMessageWinA ] = useState();
   const [ messageWinB, setMessageWinB ] = useState();
+  const [ messageWinC, setMessageWinC ] = useState();
+  const [ messageWinD, setMessageWinD ] = useState();
   const [ messageLoseA, setMessageLoseA ] = useState();
   const [ messageLoseB, setMessageLoseB ] = useState();
+  const [ banjoSpeaking, setBanjoSpeaking ] = useState(true);
+  const [ gruntySpeaking, setGruntySpeaking ] = useState(true);
 
   useEffect(() => {
     if (score !== 0) {
@@ -24,6 +33,24 @@ const EndGame = (props) => {
       setTimeout(() => {
         setMessageWinB(<p className="typewriter">HOW ABOUT TRYING FOR {(finalScore + 10)} NEXT?</p>)
       }, 7500)
+      setTimeout(() => {
+        setBanjoSpeaking(false)
+      }, 11300)
+      // setTimeout(() => {
+      //   kazooie.play()
+      //   setMessageWinC(
+      //     <div className="end-game-left-message">
+      //       <div>
+      //         <p className="typewriter">ANYTHING TO MAKE THAT OLD HAG LEAVE</p>
+      //         {messageWinD}
+      //       </div>
+      //       <img src={Kazooie} alt="Kazooie Speaking" />
+      //     </div>
+      //   )
+      // }, 11500)
+      // setTimeout(() => {
+      //   setMessageWinD(<p className="typewriter">OUR HOME.</p>)
+      // }, 15000)
     } else {
       gruntilda.play();
       setTimeout(() => {
@@ -32,6 +59,9 @@ const EndGame = (props) => {
       setTimeout(() => {
         setMessageLoseB(<p className="typewriter">TRY AGAIN IF YOU DARE.</p>)
       }, 7000)
+      setTimeout(() => {
+        setGruntySpeaking(false)
+      }, 10500)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -64,14 +94,22 @@ const EndGame = (props) => {
     }
   }
 
+  // const renderKazooie = () => {
+  //   return (
+  //     messageWinC
+  //     messageWinD
+  // }
+
   return (
     <div className="end-game-left">
       <div className="end-game-left-message">
-        <img src={score !== 0 ? Banjo : Gruntilda} alt="Character Speaking" />
+        <img src={score !== 0 ? (banjoSpeaking ? Banjo : BanjoStop) : (gruntySpeaking ? Gruntilda : GruntildaStop) } alt="Character Speaking" />
         <div>
           {renderMessage()}
         </div>
       </div>
+      {/* {messageWinC} */}
+      {/* {messageWinD} */}
       <div className="final-score" style={ score !== 0 ? {backgroundColor: '#8EE190'} : null}>
         <h1>{score !== 0 ? `SCORE = ${finalScore}` : ''}</h1>
       </div>
