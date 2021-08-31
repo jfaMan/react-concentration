@@ -54,7 +54,7 @@ const Login = (props) => {
             <h5>CONCENTRATION CHALLENGE</h5>
             <label>ENTER YOUR NAME</label>
             <br />
-            <input type="text" onChange={handleChange}/>
+            <input type="text" onChange={handleChange} pattern="[a-zA-Z]+" minlength="2" maxlength="7"/>
           </div>
           <button className='btn btn-warning'>
             START
@@ -72,7 +72,7 @@ const Login = (props) => {
           <h1>INSTRUCTIONS</h1>
           <img src={Instructions} alt="Banjo and Kazooie" />
           <p>GRUNTY'S BACK! HELP EVERYONE'S FAVOURITE BEAR AND BIRD COMPLETE GRUNTILDA'S CONCENTRATION CHALLENGE.</p>
-          <p>YOU'LL HAVE A NUMBER OF ATTEMPTS TO TRY AND PAIR UP ALL THE MATCHING CARDS. BUT BE CAREFUL BECAUSE IF THE NUMBER REACHES 0, IT'S GAME OVER!</p>
+          <p>YOU'LL HAVE A NUMBER OF ATTEMPTS TO TRY AND PAIR UP ALL THE MATCHING CARDS, BUT BE CAREFUL BECAUSE IF THE NUMBER REACHES 0, IT'S GAME OVER!</p>
         </div>
       </div>
     </div>
