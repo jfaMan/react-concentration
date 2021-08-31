@@ -54,7 +54,7 @@ const Login = (props) => {
             <h5>CONCENTRATION CHALLENGE</h5>
             <label>ENTER YOUR NAME</label>
             <br />
-            <input type="text" onChange={handleChange} pattern="[a-zA-Z]+" minlength="2" maxlength="7"/>
+            <input type="text" onChange={handleChange} pattern="[a-zA-Z]+" minLength="2" maxLength="7"/>
           </div>
           <button className='btn btn-warning'>
             START
