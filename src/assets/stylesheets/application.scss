@@ -41,7 +41,7 @@ body {
   text-align: center;
   padding-top: 300px;
   button {
-    margin: 28px;
+    margin: 16px 60px 0 60px;
     width: 120px;
     border: 1px solid black;
   }
@@ -296,6 +296,7 @@ input[type=text] {
 
   .start-screen {
     button {
+      margin: 28px;
       width: 100px;
     }
   }
@@ -322,13 +323,14 @@ input[type=text] {
           margin: 0 0 8px 0;
         }
         .mute-login {
-          // position: absolute;
-          // bottom: 442px;
           height: 12px;
         }
         img {
           height: 72px;
           animation-duration: 0s;
+        }
+        .bounce {
+          animation-name: bounce-mobile;
         }
       }
     }
