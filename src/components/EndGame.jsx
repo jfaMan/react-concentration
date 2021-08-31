@@ -35,7 +35,7 @@ const EndGame = (props) => {
       }, 7500)
       setTimeout(() => {
         setBanjoSpeaking(false)
-      }, 11300)
+      }, 11400)
       // setTimeout(() => {
       //   kazooie.play()
       //   setMessageWinC(
