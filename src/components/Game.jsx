@@ -12,6 +12,7 @@ const Game = (props) => {
   const [ showEndGame, setShowEndGame ] = useState(false);
   const [ audioOn, setAudioOn ] = useState(true);
   const [ imagesKey, setImagesKey ] = useState(10);
+  // const [ startNewGame, setStartNewGame ] = useState(false);
 
   const handleEndGame = (boolean) => {
     setShowEndGame(boolean)
@@ -24,6 +25,7 @@ const Game = (props) => {
     gameMusic.play()
     restartScore()
     setImagesKey(imagesKey - 1)
+    // setStartNewGame(!setStartNewGame)
   }
 
   const muteAudio = () => {
@@ -48,6 +50,7 @@ const Game = (props) => {
           handleEndGame={handleEndGame}
           calculateScore={calculateScore}
           score={score}
+          // startNewGame={startNewGame}
         />
       <div className="game-right">
         <div className="game-right-mute-btn">

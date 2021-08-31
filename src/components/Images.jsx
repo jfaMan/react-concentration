@@ -20,15 +20,15 @@ const Images = (props) => {
   const [ selectedCardIndex, setSelectedCardIndex ] = useState([]);
 
   useEffect(() => {
-    setCharacters(images.sort(() => Math.random() - 0.5))
-    // console.log('mounting')
-    // return () => console.log('unmounting')
+    const newCharacterSet = images.sort(() => Math.random() - 0.5)
+    newCharacterSet.forEach(character => character.flipped = false)
+    setCharacters(newCharacterSet)
   }, []) // Will run once on mount
 
   useEffect(() => {
     checkEndGame()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [totalFlippedCards])
+  }, [totalFlippedCards]) // Will run every time totalFlippedCards state changes
 
   useEffect(() => {
     checkEndGame()
