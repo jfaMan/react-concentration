@@ -167,15 +167,11 @@ input[type=text] {
   padding: 8px;
   background-color: $yellow;
   box-shadow: 4px 4px 4px grey;
-  transition: 0.2s;
   cursor: pointer;
-  // &:hover {
-  //   border: 1px solid grey;
-  // }
+  transition: 0.2s;
 }
 
 .image-blank {
-  background-image: url("../../components/images/Blank.jpg") !important;
   border-radius: 8px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -183,11 +179,8 @@ input[type=text] {
   padding: 8px;
   background-color: $white;
   box-shadow: 4px 4px 4px grey;
-  transition: 0.2s;
   cursor: pointer;
-  // &:hover {
-  //   opacity: 50%;
-  // }
+  transition: 0.2s;
 }
 .game {
   display: flex;
