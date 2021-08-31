@@ -1,11 +1,13 @@
 import React, { useEffect, useState }  from 'react';
+import Start from './components/Start';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Game from './components/Game';
 import GameMusicMp3 from './components/music/GameMusicMp3.mp3';
 
 const App = () => {
-  const [ showLogin, setShowLogin ] = useState(true);
+  const [ showStart, setShowStart ] = useState(true);
+  const [ showLogin, setShowLogin ] = useState(false);
   const [ showGame, setShowGame ] = useState(false);
   const [ playerName, setPlayerName ] = useState("");
   const [ score, setScore ] = useState();
@@ -18,6 +20,11 @@ const App = () => {
     }, 500);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showGame])
+
+  const handleStart = () => {
+    setShowStart(!showStart)
+    setShowLogin(!showLogin)
+  }
 
   const handleLogin = (name, boolean) => {
     setPlayerName(name)
@@ -48,13 +55,15 @@ const App = () => {
         return null
     }
   }
-  
+
   return (
     <div>
       <Navbar
         name={playerName}
         score={score}
+        start={showStart}
       />
+      {showStart ? <Start handleStart={handleStart} /> : null}
       {showLogin ? <Login handleLogin={handleLogin} calculateScore={calculateScore} /> : null}
       {renderGame()}
     </div>

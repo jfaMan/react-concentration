@@ -36,6 +36,17 @@ body {
   }
 }
 
+.start-screen {
+  width: 100%;
+  text-align: center;
+  padding-top: 300px;
+  button {
+    margin: 28px;
+    width: 120px;
+    border: 1px solid black;
+  }
+}
+
 .login-screen {
   display: flex;
   align-items: center;
@@ -282,6 +293,13 @@ input[type=text] {
       width: 60px;
     }
   }
+
+  .start-screen {
+    button {
+      width: 100px;
+    }
+  }
+
   .login-screen {
     display: block;
     height: 630px;
