@@ -16,6 +16,7 @@ const Images = (props) => {
   const { gameMusic, handleEndGame, calculateScore, score } = props;
   const [ characters, setCharacters ] = useState([])
   const [ flippedCards, setFlippedCards ] = useState(0);
+  const [ cardPair, setCardPair ] = useState([]);
 
   useEffect(() => {
     setCharacters(images.sort(() => Math.random() - 0.5))
@@ -33,22 +34,23 @@ const Images = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score])
 
-
-  let cards = [];
+  useEffect(() => {
+    if (cardPair.length === 2) {
+      checkNames(cardPair[0], cardPair[1])
+    } else {
+      return;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cardPair])
 
   const handleClick = (event) => {
-    const card = event.target
-    if (card.getAttribute("found") === "true") {
+    const nextCard = event.target
+    if (nextCard.getAttribute("found") === "true") {
       return;
     } else {
-      card.classList.remove('image-blank')
-      card.setAttribute("found", "true")
-      cards.push(card)
-      if (cards.length === 2) {
-        checkNames(cards[0], cards[1])
-      } else {
-        return;
-      }
+      nextCard.classList.remove('image-blank')
+      nextCard.setAttribute("found", "true")
+      setCardPair([...cardPair, nextCard])
     }
   }
   
@@ -59,8 +61,6 @@ const Images = (props) => {
         correct.play();
       }, 100)
       setFlippedCards(flippedCards + 2)
-      cards.shift();
-      cards.shift();
     } else {
       setTimeout(() => {
         const wrong = new Audio(Wrong);
@@ -72,10 +72,9 @@ const Images = (props) => {
         card1.classList.add('image-blank')
         card2.classList.add('image-blank')
       }, 1000)
-      cards.shift()
-      cards.shift()
       calculateScore()
     }
+    setCardPair([])
   }
   
   const checkEndGame = () => {
@@ -112,7 +111,7 @@ const Images = (props) => {
               name={image.name}
               style={{ backgroundImage: `url(${image.pic})` }}
               found="false"
-              onClick={score !== 0 ? handleClick : null}
+              onClick={score === 0 || cardPair.length === 2 ? null : handleClick}
             />
           )
         })
