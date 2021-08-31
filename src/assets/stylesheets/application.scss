@@ -45,6 +45,18 @@ body {
     width: 120px;
     border: 1px solid black;
   }
+  .footer {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    .text-center {
+      padding: 0 8px 0 8px;
+    }
+  }
 }
 
 .login-screen {
@@ -279,6 +291,21 @@ input[type=text] {
 // }
 
 @media (max-width: 576px) {
+  .start-screen {
+    .footer {
+      display: block;
+      font-size: 14px;
+      p {
+        margin-bottom: 8px;
+      }
+      .text-center {
+        display: none;
+      }
+      .text-left, .text-right {
+        text-align: center !important;
+      }
+    }
+  }
   .navbar {
     height: 60px;
     width: 100%;
