@@ -39,11 +39,16 @@ body {
 .start-screen {
   width: 100%;
   text-align: center;
-  padding-top: 300px;
-  button {
-    margin: 16px 60px 0 60px;
-    width: 120px;
-    border: 1px solid black;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .start-btn-container {
+    button {
+      margin: 70px 60px 0 60px;
+      width: 120px;
+      border: 1px solid black;
+    }
   }
   .footer {
     display: flex;
@@ -333,11 +338,15 @@ input[type=text] {
   }
 
   .start-screen {
-    button {
-      margin: 28px;
-      width: 100px;
+    .start-btn-container {
+      display: flex;
+      button {
+        margin: 100px 30px 0 30px;
+        width: 100px;
+      }
     }
   }
+
   .login-wrapper {
     .login-mute-container {
       margin: 0;
