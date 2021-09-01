@@ -268,9 +268,9 @@ input[type=text] {
 .game-right {
   flex: 1;
   margin: 32px 32px 0 32px;
-  .game-right-mute-btn {
+  .game-mute-container {
     text-align: end;
-    .mute-game {
+    .game-mute-btn {
       height: 24px;
       cursor: pointer;
     }
@@ -412,13 +412,11 @@ input[type=text] {
     }
     .game-left {
       align-items: center;
-      margin: 32px 16px 32px 16px;
+      margin: 40px 16px 24px 16px;
     }
     .bounce {
       animation-name: bounce-mobile;
       order: 0;
-      margin-top: 24px;
-      // margin-bottom: 8px;
     }
     .game-right {
       height: auto;
@@ -426,9 +424,13 @@ input[type=text] {
       // display: flex;
       // flex-direction: column;
       // justify-content: flex-end;
-      .game-right-mute-btn {
-        text-align: center;
-        padding: 16px;
+      .game-mute-container {
+        .game-mute-btn {
+          height: 16px;
+          position: absolute;
+          top: 72px;
+          right: 12px;
+        }
       }
     }
     .end-game-left {

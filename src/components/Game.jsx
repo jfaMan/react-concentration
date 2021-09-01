@@ -50,9 +50,9 @@ const Game = (props) => {
           score={score}
         />
       <div className="game-right">
-        <div className="game-right-mute-btn">
+        <div className="game-mute-container">
           <img
-            className="mute-game"
+            className="game-mute-btn"
             onClick={muteAudio}
             src={audioIconToggle()}
             alt="Mute/Unmute Icon"
