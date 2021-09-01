@@ -59,6 +59,7 @@ body {
   }
 }
 
+
 .login-screen {
   display: flex;
   align-items: center;
@@ -99,7 +100,6 @@ body {
     }
   }
 }
-
 
 .login-wrapper {
   .login-mute-container {
@@ -334,64 +334,73 @@ input[type=text] {
       width: 100px;
     }
   }
-
-  .login-screen {
-    display: block;
-    height: 630px;
-    .login-page {
-      margin-top: 12px;
-      form {
-        justify-content: flex-end;
-        height: 300px;
-        width: 450px;
-        h5 {
-          margin: 8px 0 16px 0;
-          font-size: 18px;
-        }
-        label {
-          font-size: 14px;
-        }
-        button {
-          width: 120px;
-          height: 36px;
-          margin: 0 0 8px 0;
-        }
-        .mute-login {
-          height: 12px;
-        }
-        img {
-          height: 72px;
-          animation-duration: 0s;
-        }
-        .bounce {
-          animation-name: bounce-mobile;
-        }
+  .login-wrapper {
+    .login-mute-container {
+      margin: 0;
+      .login-mute-btn {
+        height: 16px;
+        position: absolute;
+        top: 72px;
+        right: 12px;
       }
     }
-    .login-instructions {
-      flex: 1;
-      .instructions {
-        background-color: rgba(0, 0, 0, 0.7);
-        border-radius: 50px;
-        width: 375px;
-        padding: 16px 32px 16px 32px;
-        margin: 24px;
-        box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.7);
-        text-align: center;
-        color: $white;
-        h1 {
-          font-size: 28px;
+    .login-screen {
+      display: block;
+      height: 630px;
+      .login-page {
+        margin-top: 12px;
+        form {
+          justify-content: flex-end;
+          height: 300px;
+          width: 450px;
+          h5 {
+            margin: 8px 0 16px 0;
+            font-size: 18px;
+          }
+          label {
+            font-size: 14px;
+          }
+          button {
+            width: 120px;
+            height: 36px;
+            margin: 0 0 8px 0;
+          }
+          
+          img {
+            height: 72px;
+            animation-duration: 0s;
+          }
+          .bounce {
+            animation-name: bounce-mobile;
+          }
         }
-        p {
-          margin: 16px 0 0 0;
-          font-size: 14px;
-        }
-        img {
-          width: 125px;
+      }
+      .login-instructions {
+        flex: 1;
+        .instructions {
+          background-color: rgba(0, 0, 0, 0.7);
+          border-radius: 50px;
+          width: 375px;
+          padding: 16px 32px 16px 32px;
+          margin: 24px;
+          box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.7);
+          text-align: center;
+          color: $white;
+          h1 {
+            font-size: 28px;
+          }
+          p {
+            margin: 16px 0 0 0;
+            font-size: 14px;
+          }
+          img {
+            width: 125px;
+          }
         }
       }
     }
   }
+
   .game {
     flex-direction: column;
     justify-content: space-between;
