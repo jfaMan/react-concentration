@@ -4,15 +4,14 @@ import Images from './Images'
 
 // Image imports //
 import Logo from './images/Logo.png';
-import MuteImg from './images/MuteWhite.png';
-import UnmuteImg from './images/UnmuteWhite.png';
+import MuteImg from './images/Mute.png';
+import UnmuteImg from './images/Unmute.png';
 
 const Game = (props) => {
   const { gameMusic, playerName, calculateScore, score, restartScore } = props;
   const [ showEndGame, setShowEndGame ] = useState(false);
   const [ audioOn, setAudioOn ] = useState(true);
   const [ imagesKey, setImagesKey ] = useState(10);
-  // const [ startNewGame, setStartNewGame ] = useState(false);
 
   const handleEndGame = (boolean) => {
     setShowEndGame(boolean)
@@ -25,7 +24,6 @@ const Game = (props) => {
     gameMusic.play()
     restartScore()
     setImagesKey(imagesKey - 1)
-    // setStartNewGame(!setStartNewGame)
   }
 
   const muteAudio = () => {
@@ -50,7 +48,6 @@ const Game = (props) => {
           handleEndGame={handleEndGame}
           calculateScore={calculateScore}
           score={score}
-          // startNewGame={startNewGame}
         />
       <div className="game-right">
         <div className="game-right-mute-btn">

@@ -46,33 +46,37 @@ const Login = (props) => {
   }
 
   return (
-    <div className="login-screen">
-      <div className="login-page">
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <img className="bounce" src={Logo} alt="Logo" />
-            <h5>CONCENTRATION CHALLENGE</h5>
-            <label>ENTER YOUR NAME</label>
-            <br />
-            <input type="text" onChange={handleChange} pattern="[a-zA-Z]+" minLength="2" maxLength="7"/>
-          </div>
-          <button className='btn btn-warning'>
-            START
-          </button>
-          <img
-            className="mute-login"
-            onClick={muteAudio}
-            src={audioIconToggle()}
-            alt="Mute/Unmute Icon"
-          />
-        </form>
+    <div className="login-wrapper">
+      <div className="login-mute-container">
+        <img
+          className="login-mute-btn"
+          onClick={muteAudio}
+          src={audioIconToggle()}
+          alt="Mute/Unmute Icon"
+        />
       </div>
-      <div className="login-instructions">
-        <div className="instructions">
-          <h1>INSTRUCTIONS</h1>
-          <img src={Instructions} alt="Banjo and Kazooie" />
-          <p>GRUNTY'S BACK! HELP EVERYONE'S FAVOURITE BEAR AND BIRD COMPLETE GRUNTILDA'S CONCENTRATION CHALLENGE.</p>
-          <p>YOU'LL HAVE A NUMBER OF ATTEMPTS TO TRY AND PAIR UP ALL THE MATCHING CARDS, BUT BE CAREFUL BECAUSE IF THE NUMBER REACHES 0, IT'S GAME OVER!</p>
+      <div className="login-screen">
+        <div className="login-page">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <img className="bounce" src={Logo} alt="Logo" />
+              <h5>CONCENTRATION CHALLENGE</h5>
+              <label>ENTER YOUR NAME</label>
+              <br />
+              <input type="text" onChange={handleChange} pattern="[a-zA-Z]+" minLength="2" maxLength="7"/>
+            </div>
+            <button className='btn btn-warning'>
+              START
+            </button>
+          </form>
+        </div>
+        <div className="login-instructions">
+          <div className="instructions">
+            <h1>INSTRUCTIONS</h1>
+            <img src={Instructions} alt="Banjo and Kazooie" />
+            <p>GRUNTY'S BACK! HELP EVERYONE'S FAVOURITE BEAR AND BIRD COMPLETE GRUNTILDA'S CONCENTRATION CHALLENGE.</p>
+            <p>YOU'LL HAVE A NUMBER OF ATTEMPTS TO TRY AND PAIR UP ALL THE MATCHING CARDS, BUT BE CAREFUL BECAUSE IF THE NUMBER REACHES 0, IT'S GAME OVER!</p>
+          </div>
         </div>
       </div>
     </div>
