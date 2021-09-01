@@ -9,6 +9,7 @@ import GruntildaVoice from './music/GruntildaVoice.mp3';
 // import KazooieVoice from './music/KazooieVoice.mp3';
 // import Typewriter from 'typewriter-effect';
 
+
 const EndGame = (props) => {
   const {playerName, score, handleEndGame, refreshImages} = props;
   const [ banjo ] = useState(new Audio(BanjoVoice));
@@ -99,6 +100,16 @@ const EndGame = (props) => {
   //     messageWinC
   //     messageWinD
   // }
+
+  // THESE STYLE OBJECT VARIABLES DON'T WORK???
+  // const winScoreScreen = {
+  //   backgroundColor: '#8EE190',
+  //   boxShadow: '0px 0px 8px 8px rgba(142, 225, 144, 0.7)'
+  // }
+  // const loseScoreScreen = {
+  //   backgroundColor: '#F8F8F8',
+  //   boxShadow: '0px 0px 8px 8px rgba(248, 248, 248, 0.7)'
+  // }
   
   return (
     <div className="end-game-left">
@@ -110,7 +121,7 @@ const EndGame = (props) => {
       </div>
       {/* {messageWinC} */}
       {/* {messageWinD} */}
-      <div className="final-score" style={ score !== 0 ? {backgroundColor: '#8EE190'} : {backgroundColor: '#F8F8F8'}}>
+      <div className="final-score" style={ score !== 0 ? {backgroundColor: '#8EE190', boxShadow: '0px 0px 8px 8px rgba(142, 225, 144, 0.7)'} : {backgroundColor: '#F8F8F8', boxShadow: '0px 0px 8px 8px rgba(248, 248, 248, 0.7)'}}>
         <h1>{score !== 0 ? `SCORE = ${finalScore}` : 'GAME OVER'}</h1>
       </div>
       <button onClick={handleClick} className="btn btn-warning">
