@@ -79,7 +79,7 @@ const EndGame = (props) => {
     if (score !== 0) {
       return (
         <div>
-          <p className="typewriter">GREAT JOB{playerName ? `, ${playerName}` : null}! YOU FINISHED</p>
+          <p className="typewriter">GREAT JOB{playerName ? `, ${playerName}` : null}! YOU COMPLETED</p>
           {messageWinA}
           {messageWinB}
         </div>
