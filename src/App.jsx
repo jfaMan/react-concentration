@@ -63,8 +63,8 @@ const App = () => {
         score={score}
         start={showStart}
       />
-      {showStart ? <Start handleStart={handleStart} /> : null}
-      {showLogin ? <Login handleLogin={handleLogin} calculateScore={calculateScore} /> : null}
+      {showStart && <Start handleStart={handleStart} />}
+      {showLogin && <Login handleLogin={handleLogin} calculateScore={calculateScore} />}
       {renderGame()}
     </div>
   )
