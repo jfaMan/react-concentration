@@ -17,6 +17,7 @@ A throwback to one of my favourite childhood games, Banjo-Kazooie. This is a mem
 ## Setup
 
 After cloning this repository:
+
 1. Enter the directory with `cd react-concentration`
 2. Make sure node v14 is installed and set. If not, run `nvm install 14 --lts` to download the latest stable release and set it.
 3. Install dependencies with `yarn install` or `npm install`.
