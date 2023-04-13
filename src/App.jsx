@@ -1,44 +1,44 @@
-import React, { useEffect, useState }  from 'react';
-import Start from './components/Start';
+import Game from './components/Game';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
-import Game from './components/Game';
+import Start from './components/Start';
 import GameMusicMp3 from './components/music/GameMusicMp3.mp3';
+import React, { useEffect, useState } from 'react';
 
 const App = () => {
-  const [ showStart, setShowStart ] = useState(true);
-  const [ showLogin, setShowLogin ] = useState(false);
-  const [ showGame, setShowGame ] = useState(false);
-  const [ playerName, setPlayerName ] = useState("");
-  const [ score, setScore ] = useState();
-  const [ gameMusic ] = useState(new Audio(GameMusicMp3))
+  const [showStart, setShowStart] = useState(true);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showGame, setShowGame] = useState(false);
+  const [playerName, setPlayerName] = useState('');
+  const [score, setScore] = useState();
+  const [gameMusic] = useState(new Audio(GameMusicMp3));
 
   useEffect(() => {
     setTimeout(() => {
-      gameMusic.setAttribute("loop", "true")
-      gameMusic.play()
+      gameMusic.setAttribute('loop', 'true');
+      gameMusic.play();
     }, 500);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [showGame])
+  }, [showGame]);
 
   const handleStart = () => {
-    setShowStart(!showStart)
-    setShowLogin(!showLogin)
-  }
+    setShowStart(!showStart);
+    setShowLogin(!showLogin);
+  };
 
   const handleLogin = (name, boolean) => {
-    setPlayerName(name)
-    setShowLogin(boolean)
-    setShowGame(!boolean)
-  }
+    setPlayerName(name);
+    setShowLogin(boolean);
+    setShowGame(!boolean);
+  };
 
   const calculateScore = () => {
     setScore(score ? score - 1 : 10);
-  }
+  };
 
   const restartScore = () => {
     setScore(10);
-  }
+  };
 
   const renderGame = () => {
     if (showGame) {
@@ -50,11 +50,11 @@ const App = () => {
           score={score}
           restartScore={restartScore}
         />
-      )
+      );
     } else {
-        return null
+      return null;
     }
-  }
+  };
 
   return (
     <div>
@@ -64,10 +64,15 @@ const App = () => {
         start={showStart}
       />
       {showStart && <Start handleStart={handleStart} />}
-      {showLogin && <Login handleLogin={handleLogin} calculateScore={calculateScore} />}
+      {showLogin && (
+        <Login
+          handleLogin={handleLogin}
+          calculateScore={calculateScore}
+        />
+      )}
       {renderGame()}
     </div>
-  )
-}
+  );
+};
 
 export default App;

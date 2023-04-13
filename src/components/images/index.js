@@ -1,93 +1,93 @@
 import Banjo from './Banjo.png';
-import Kazooie from './Kazooie.png';
 import Bottles from './Bottles.png';
 import Gruntilda from './Gruntilda.png';
 import Jiggy from './Jiggy.png';
 import Jinjo from './Jinjo.png';
+import Kazooie from './Kazooie.png';
 import Mumbo from './Mumbo.png';
 import Rareware from './Rareware.png';
 
 let images = [
   {
-    name: "Banjo",
+    name: 'Banjo',
     pic: Banjo,
-    flipped: false,
+    flipped: false
   },
   {
-    name: "Kazooie",
+    name: 'Kazooie',
     pic: Kazooie,
-    flipped: false,
+    flipped: false
   },
   {
-    name: "Bottles",
+    name: 'Bottles',
     pic: Bottles,
-    flipped: false,
+    flipped: false
   },
   {
-    name: "Gruntilda",
+    name: 'Gruntilda',
     pic: Gruntilda,
-    flipped: false,
+    flipped: false
   },
   {
-    name: "Jiggy",
+    name: 'Jiggy',
     pic: Jiggy,
-    flipped: false,
+    flipped: false
   },
   {
-    name: "Jinjo",
+    name: 'Jinjo',
     pic: Jinjo,
-    flipped: false,
+    flipped: false
   },
   {
-    name: "Mumbo",
+    name: 'Mumbo',
     pic: Mumbo,
-    flipped: false,
+    flipped: false
   },
   {
-    name: "Rareware",
+    name: 'Rareware',
     pic: Rareware,
-    flipped: false,
+    flipped: false
   },
   {
-    name: "Banjo",
+    name: 'Banjo',
     pic: Banjo,
-    flipped: false,
+    flipped: false
   },
   {
-    name: "Kazooie",
+    name: 'Kazooie',
     pic: Kazooie,
-    flipped: false,
+    flipped: false
   },
   {
-    name: "Bottles",
+    name: 'Bottles',
     pic: Bottles,
-    flipped: false,
+    flipped: false
   },
   {
-    name: "Gruntilda",
+    name: 'Gruntilda',
     pic: Gruntilda,
-    flipped: false,
+    flipped: false
   },
   {
-    name: "Jiggy",
+    name: 'Jiggy',
     pic: Jiggy,
-    flipped: false,
+    flipped: false
   },
   {
-    name: "Jinjo",
+    name: 'Jinjo',
     pic: Jinjo,
-    flipped: false,
+    flipped: false
   },
   {
-    name: "Mumbo",
+    name: 'Mumbo',
     pic: Mumbo,
-    flipped: false,
+    flipped: false
   },
   {
-    name: "Rareware",
+    name: 'Rareware',
     pic: Rareware,
-    flipped: false,
-  },
-]
+    flipped: false
+  }
+];
 
 export default images;
