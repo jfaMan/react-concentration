@@ -4,8 +4,13 @@ import React, { useState } from 'react';
 // import NavbarLogo2 from './images/NavbarLogo2.png';
 // import LogoToggle from './music/LogoToggle.mp3'
 
-const Navbar = (props) => {
-  const { name, score, start } = props;
+type NavbarProps = {
+  name: string;
+  score: number;
+  start: boolean;
+};
+
+export default function Navbar({ name, score, start }: NavbarProps) {
   // const [ oldLogo, setOldLogo] = useState(false);
 
   // const toggleLogo = () => {
@@ -19,10 +24,8 @@ const Navbar = (props) => {
         src={NavbarLogo}
         alt="Logo"
       />
-      {score >= 0 && <div className="score">TRIES REMAINING: {score}</div>}
-      {!start && <div className="name">NAME: {name}</div>}
+      {start && <div className="score">TRIES REMAINING: {score}</div>}
+      {start && <div className="name">NAME: {name}</div>}
     </div>
   );
 };
-
-export default Navbar;
