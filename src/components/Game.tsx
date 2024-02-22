@@ -5,13 +5,20 @@ import MuteImg from './images/Mute.png';
 import UnmuteImg from './images/Unmute.png';
 import React, { useState } from 'react';
 
-const Game = (props) => {
-  const { gameMusic, playerName, calculateScore, score, restartScore } = props;
+type GameProps = {
+  gameMusic: HTMLAudioElement;
+  playerName: string;
+  calculateScore: () => void;
+  score: number;
+  restartScore: () => void;
+};
+
+export default function Game({ gameMusic, playerName, calculateScore, score, restartScore }: GameProps) {
   const [showEndGame, setShowEndGame] = useState(false);
   const [audioOn, setAudioOn] = useState(true);
   const [imagesKey, setImagesKey] = useState(10);
 
-  const handleEndGame = (boolean) => {
+  const handleEndGame = (boolean: boolean) => {
     setShowEndGame(boolean);
   };
 
@@ -50,7 +57,8 @@ const Game = (props) => {
           <div></div>
         )}
         <img
-          className={score !== 0 && 'bounce'}
+          // className={score !== 0 && 'bounce'} logical AND returns a type error as it expects a string for className and not false
+          className={score !== 0 ? 'bounce' : ''}
           src={Logo}
           alt="Logo"
         />
@@ -58,7 +66,6 @@ const Game = (props) => {
       <Images
         key={imagesKey}
         gameMusic={gameMusic}
-        showEndGame={showEndGame}
         handleEndGame={handleEndGame}
         calculateScore={calculateScore}
         score={score}
@@ -76,5 +83,3 @@ const Game = (props) => {
     </div>
   );
 };
-
-export default Game;

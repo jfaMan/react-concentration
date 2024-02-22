@@ -2,8 +2,11 @@ import React from 'react';
 
 // import Logo from './images/Logo.png';
 
-const Start = (props) => {
-  const { handleStart } = props;
+type StartProps = {
+  handleStart: () => void;
+};
+
+export default function Start({ handleStart } : StartProps) {
 
   return (
     <div className="start-screen">
@@ -29,5 +32,3 @@ const Start = (props) => {
     </div>
   );
 };
-
-export default Start;

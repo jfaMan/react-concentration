@@ -6,9 +6,14 @@ import Banjo from './music/Banjo.mp3';
 import Fireplace from './music/Fireplace.mp3';
 import LoginMusic from './music/LoginMusic.mp3';
 import React, { useState, useEffect } from 'react';
+import type { FormEvent, ChangeEvent } from '../types';
 
-const Login = (props) => {
-  const { handleLogin, calculateScore } = props;
+type LoginProps = {
+  handleLogin: (name: string, boolean: boolean) => void;
+  calculateScore: () => void;
+};
+
+export default function Login({ handleLogin, calculateScore }: LoginProps ) {
   const [inputName, setInputName] = useState('');
   const [loginMusic] = useState(new Audio(LoginMusic));
   const [fireplace] = useState(new Audio(Fireplace));
@@ -20,17 +25,17 @@ const Login = (props) => {
     fireplace.play();
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     handleLogin(inputName, false);
     loginMusic.pause();
     fireplace.pause();
     const gameStartBanjoVoice = new Audio(Banjo);
     gameStartBanjoVoice.play();
-    calculateScore();
+    // calculateScore();
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent) => {
     setInputName(event.target.value.toUpperCase());
   };
 
@@ -69,8 +74,8 @@ const Login = (props) => {
                 type="text"
                 onChange={handleChange}
                 pattern="[a-zA-Z]+"
-                minLength="2"
-                maxLength="7"
+                minLength={2}
+                maxLength={7}
               />
             </div>
             <button className="btn btn-warning">START</button>
@@ -94,5 +99,3 @@ const Login = (props) => {
     </div>
   );
 };
-
-export default Login;
