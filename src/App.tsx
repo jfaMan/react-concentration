@@ -5,7 +5,7 @@ import Start from './components/Start';
 import GameMusicMp3 from './components/music/GameMusicMp3.mp3';
 import React, { useEffect, useState } from 'react';
 
-const App = () => {
+export default function App() {
   const [showStart, setShowStart] = useState(true);
   const [showLogin, setShowLogin] = useState(false);
   const [showGame, setShowGame] = useState(false);
@@ -74,5 +74,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;

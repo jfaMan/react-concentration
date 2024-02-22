@@ -13,7 +13,7 @@ type GameProps = {
   restartScore: () => void;
 };
 
-const Game = ({ gameMusic, playerName, calculateScore, score, restartScore }: GameProps) => {
+export default function Game({ gameMusic, playerName, calculateScore, score, restartScore }: GameProps) {
   const [showEndGame, setShowEndGame] = useState(false);
   const [audioOn, setAudioOn] = useState(true);
   const [imagesKey, setImagesKey] = useState(10);
@@ -83,5 +83,3 @@ const Game = ({ gameMusic, playerName, calculateScore, score, restartScore }: Ga
     </div>
   );
 };
-
-export default Game;

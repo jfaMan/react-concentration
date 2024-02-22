@@ -13,7 +13,7 @@ type LoginProps = {
   calculateScore: () => void;
 };
 
-const Login = ({ handleLogin, calculateScore }: LoginProps ) => {
+export default function Login({ handleLogin, calculateScore }: LoginProps ) {
   const [inputName, setInputName] = useState('');
   const [loginMusic] = useState(new Audio(LoginMusic));
   const [fireplace] = useState(new Audio(Fireplace));
@@ -99,5 +99,3 @@ const Login = ({ handleLogin, calculateScore }: LoginProps ) => {
     </div>
   );
 };
-
-export default Login;

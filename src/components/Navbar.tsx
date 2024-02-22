@@ -10,7 +10,7 @@ type NavbarProps = {
   start: boolean;
 };
 
-const Navbar = ({ name, score, start }: NavbarProps) => {
+export default function Navbar({ name, score, start }: NavbarProps) {
   // const [ oldLogo, setOldLogo] = useState(false);
 
   // const toggleLogo = () => {
@@ -29,5 +29,3 @@ const Navbar = ({ name, score, start }: NavbarProps) => {
     </div>
   );
 };
-
-export default Navbar;

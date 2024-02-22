@@ -17,7 +17,7 @@ type EndGameProps = {
   refreshImages: () => void;
 };
 
-const EndGame = ({ playerName, score, handleEndGame, refreshImages }: EndGameProps) => {
+export default function EndGame({ playerName, score, handleEndGame, refreshImages }: EndGameProps) {
   const [banjo] = useState(new Audio(BanjoVoice));
   const [gruntilda] = useState(new Audio(GruntildaVoice));
   // const [ kazooie ] = useState(new Audio(KazooieVoice));
@@ -151,5 +151,3 @@ const EndGame = ({ playerName, score, handleEndGame, refreshImages }: EndGamePro
     </div>
   );
 };
-
-export default EndGame;

@@ -6,7 +6,7 @@ type StartProps = {
   handleStart: () => void;
 };
 
-const Start = ({ handleStart } : StartProps) => {
+export default function Start({ handleStart } : StartProps) {
 
   return (
     <div className="start-screen">
@@ -32,5 +32,3 @@ const Start = ({ handleStart } : StartProps) => {
     </div>
   );
 };
-
-export default Start;

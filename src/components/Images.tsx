@@ -25,7 +25,7 @@ type newCharacterSetType = {
   flipped: boolean;
 }[];
 
-const Images = ({ gameMusic, handleEndGame, calculateScore, score }: ImagesProps) => {
+export default function Images({ gameMusic, handleEndGame, calculateScore, score }: ImagesProps) {
   const [characters, setCharacters] = useState<newCharacterSetType>([]);
   const [totalFlippedCards, setTotalFlippedCards] = useState(0);
   const [selectedCardIndex, setSelectedCardIndex] = useState<number[]>([]);
@@ -163,5 +163,3 @@ const Images = ({ gameMusic, handleEndGame, calculateScore, score }: ImagesProps
     </div>
   );
 };
-
-export default Images;
