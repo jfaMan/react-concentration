@@ -60,7 +60,7 @@ export default function Login({ handleLogin, calculateScore }: LoginProps ) {
       </div>
       <div className="login-screen">
         <div className="login-page">
-          <form onSubmit={(handleSubmit)}>
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <img
                 className="bounce"
