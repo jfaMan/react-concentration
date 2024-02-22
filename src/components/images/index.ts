@@ -7,7 +7,13 @@ import Kazooie from './Kazooie.png';
 import Mumbo from './Mumbo.png';
 import Rareware from './Rareware.png';
 
-let images = [
+type imagesType = {
+  name: string;
+  pic: HTMLImageElement;
+  flipped: boolean;
+}[];
+
+let images: imagesType = [
   {
     name: 'Banjo',
     pic: Banjo,

@@ -5,12 +5,12 @@ import Start from './components/Start';
 import GameMusicMp3 from './components/music/GameMusicMp3.mp3';
 import React, { useEffect, useState } from 'react';
 
-const App = () => {
+export default function App() {
   const [showStart, setShowStart] = useState(true);
   const [showLogin, setShowLogin] = useState(false);
   const [showGame, setShowGame] = useState(false);
   const [playerName, setPlayerName] = useState('');
-  const [score, setScore] = useState();
+  const [score, setScore] = useState(10);
   const [gameMusic] = useState(new Audio(GameMusicMp3));
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const App = () => {
     setShowLogin(!showLogin);
   };
 
-  const handleLogin = (name, boolean) => {
+  const handleLogin = (name: string, boolean: boolean) => {
     setPlayerName(name);
     setShowLogin(boolean);
     setShowGame(!boolean);
@@ -61,7 +61,7 @@ const App = () => {
       <Navbar
         name={playerName}
         score={score}
-        start={showStart}
+        start={showGame}
       />
       {showStart && <Start handleStart={handleStart} />}
       {showLogin && (
@@ -74,5 +74,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;

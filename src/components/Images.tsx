@@ -12,11 +12,23 @@ import React, { useEffect, useState } from 'react';
 // Otherwise, they will change back to image-blank.
 // LET'S GO!!!!
 
-const Images = (props) => {
-  const { gameMusic, handleEndGame, calculateScore, score } = props;
-  const [characters, setCharacters] = useState([]);
+type ImagesProps = {
+  gameMusic: HTMLAudioElement;
+  handleEndGame: (boolean: boolean) => void;
+  calculateScore: () => void;
+  score: number;
+};
+
+type newCharacterSetType = {
+  name: string;
+  pic: HTMLImageElement;
+  flipped: boolean;
+}[];
+
+export default function Images({ gameMusic, handleEndGame, calculateScore, score }: ImagesProps) {
+  const [characters, setCharacters] = useState<newCharacterSetType>([]);
   const [totalFlippedCards, setTotalFlippedCards] = useState(0);
-  const [selectedCardIndex, setSelectedCardIndex] = useState([]);
+  const [selectedCardIndex, setSelectedCardIndex] = useState<number[]>([]);
 
   useEffect(() => {
     const newCharacterSet = images.sort(() => Math.random() - 0.5);
@@ -43,7 +55,9 @@ const Images = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCardIndex]);
 
-  const handleClick = (index) => {
+  const handleClick = (index: number) => {
+    if (score === 0 || selectedCardIndex.length === 2) return;
+
     const newCharacters = [...characters];
     const clickedCard = newCharacters[index];
     if (!clickedCard.flipped) {
@@ -63,7 +77,7 @@ const Images = (props) => {
   //   setSelectedCardIndex([...selectedCardIndex, nextCard])
   // }
 
-  const checkNames = (firstClickedIndex, secondClickedIndex) => {
+  const checkNames = (firstClickedIndex: number, secondClickedIndex: number) => {
     if (characters[firstClickedIndex].name === characters[secondClickedIndex].name) {
       setTimeout(() => {
         const correct = new Audio(Correct);
@@ -138,16 +152,14 @@ const Images = (props) => {
         return (
           <div
             className={characters[index].flipped ? 'image' : 'image-blank'}
-            name={image.name}
+            data-name={image.name}
             style={{
               backgroundImage: `url(${characters[index].flipped ? image.pic : Blank})`
             }}
-            onClick={score === 0 || selectedCardIndex.length === 2 ? null : () => handleClick(index)}
+            onClick={() => handleClick(index)}
           />
         );
       })}
     </div>
   );
 };
-
-export default Images;

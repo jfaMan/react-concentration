@@ -32,9 +32,17 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.17",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
     "eslint-config-prettier": "^8.8.0",
     "prettier": "^2.8.7",
     "sass": "^1.63.6",
-    "sass-loader": "^13.2.2"
+    "sass-loader": "^13.2.2",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": "~20"
   }
 }
