@@ -10,18 +10,24 @@ import React, { useEffect, useState } from 'react';
 // import KazooieVoice from './music/KazooieVoice.mp3';
 // import Typewriter from 'typewriter-effect';
 
-const EndGame = (props) => {
-  const { playerName, score, handleEndGame, refreshImages } = props;
+type EndGameProps = {
+  playerName: string;
+  score: number;
+  handleEndGame: (boolean: boolean) => void;
+  refreshImages: () => void;
+};
+
+const EndGame = ({ playerName, score, handleEndGame, refreshImages }: EndGameProps) => {
   const [banjo] = useState(new Audio(BanjoVoice));
   const [gruntilda] = useState(new Audio(GruntildaVoice));
   // const [ kazooie ] = useState(new Audio(KazooieVoice));
   const [finalScore] = useState(score * 10);
-  const [messageWinA, setMessageWinA] = useState();
-  const [messageWinB, setMessageWinB] = useState();
+  const [messageWinA, setMessageWinA] = useState<JSX.Element>();
+  const [messageWinB, setMessageWinB] = useState<JSX.Element>();
   // const [ messageWinC, setMessageWinC ] = useState();
   // const [ messageWinD, setMessageWinD ] = useState();
-  const [messageLoseA, setMessageLoseA] = useState();
-  const [messageLoseB, setMessageLoseB] = useState();
+  const [messageLoseA, setMessageLoseA] = useState<JSX.Element>();
+  const [messageLoseB, setMessageLoseB] = useState<JSX.Element>();
   const [banjoSpeaking, setBanjoSpeaking] = useState(true);
   const [gruntySpeaking, setGruntySpeaking] = useState(true);
 

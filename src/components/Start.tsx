@@ -2,8 +2,11 @@ import React from 'react';
 
 // import Logo from './images/Logo.png';
 
-const Start = (props) => {
-  const { handleStart } = props;
+type StartProps = {
+  handleStart: () => void;
+};
+
+const Start = ({ handleStart } : StartProps) => {
 
   return (
     <div className="start-screen">
