@@ -68,6 +68,7 @@ export default function App() {
           calculateScore={calculateScore}
           score={score}
           restartScore={restartScore}
+          reset={handleReset}
         />
       )}
     </div>

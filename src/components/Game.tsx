@@ -11,9 +11,10 @@ type GameProps = {
   calculateScore: () => void;
   score: number;
   restartScore: () => void;
+  reset: () => void;
 };
 
-export default function Game({ gameMusic, playerName, calculateScore, score, restartScore }: GameProps) {
+export default function Game({ gameMusic, playerName, calculateScore, score, restartScore, reset }: GameProps) {
   const [showEndGame, setShowEndGame] = useState(false);
   const [audioOn, setAudioOn] = useState(true);
   const [imagesKey, setImagesKey] = useState(10);
@@ -52,6 +53,7 @@ export default function Game({ gameMusic, playerName, calculateScore, score, res
             score={score}
             handleEndGame={handleEndGame}
             refreshImages={refreshImages}
+            reset={reset}
           />
         ) : (
           <div></div>

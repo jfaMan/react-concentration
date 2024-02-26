@@ -285,11 +285,16 @@ input[type='text'] {
         margin: 0;
       }
     }
-    .btn {
-      width: 200px;
-      height: 60px;
-      border-radius: 32px;
-      box-shadow: 4px 4px 20px black;
+    .button-container {
+      display: flex;
+      gap: 10px;
+
+      .btn {
+        width: 180px;
+        height: 50px;
+        border-radius: 32px;
+        box-shadow: 4px 4px 20px black;
+      }
     }
   }
 }
@@ -328,6 +333,73 @@ input[type='text'] {
 // }
 
 // MEDIA QUERIES BELOW //
+
+@media (max-width: 1124px) {
+  .login-wrapper {
+    .login-screen {
+      .login-page {
+        form {
+          height: 300px;
+          width: 500px;
+          h5 {
+            margin: 8px 0 16px 0;
+            font-size: 18px;
+          }
+          label {
+            font-size: 14px;
+          }
+          button {
+            width: 120px;
+            height: 36px;
+            margin: 0;
+          }
+          img {
+            height: 72px;
+            animation-duration: 3s;
+          }
+          .bounce {
+            animation-name: bounce-mobile;
+          }
+        }
+      }
+      .login-instructions {
+        .instructions {
+          width: 450px;
+          h1 {
+            font-size: 26px;
+          }
+          p {
+            font-size: 14px;
+          }
+          img {
+            width: 175px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 976px) {
+  .login-wrapper {
+    .login-screen {
+      .login-page {
+        form {
+          height: 300px;
+          width: 360px;
+        }
+      }
+      .login-instructions {
+        .instructions {
+          width: 350px;
+          img {
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+}
 
 @media (max-width: 768px) {
   .start-screen {
@@ -486,68 +558,12 @@ input[type='text'] {
   }
 }
 
-@media (max-width: 1124px) {
-  .login-wrapper {
-    .login-screen {
-      .login-page {
-        form {
-          height: 300px;
-          width: 500px;
-          h5 {
-            margin: 8px 0 16px 0;
-            font-size: 18px;
-          }
-          label {
-            font-size: 14px;
-          }
-          button {
-            width: 120px;
-            height: 36px;
-            margin: 0;
-          }
-          img {
-            height: 72px;
-            animation-duration: 3s;
-          }
-          .bounce {
-            animation-name: bounce-mobile;
-          }
-        }
-      }
-      .login-instructions {
-        .instructions {
-          width: 450px;
-          h1 {
-            font-size: 26px;
-          }
-          p {
-            font-size: 14px;
-          }
-          img {
-            width: 175px;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 976px) {
-  .login-wrapper {
-    .login-screen {
-      .login-page {
-        form {
-          height: 300px;
-          width: 360px;
-        }
-      }
-      .login-instructions {
-        .instructions {
-          width: 350px;
-          img {
-            width: 150px;
-          }
-        }
+@media (max-width: 520px) {
+  .game {
+    .end-game-left {
+      height: 400px;
+      .button-container {
+        flex-direction: column;
       }
     }
   }
