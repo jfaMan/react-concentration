@@ -3,7 +3,7 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Start from './components/Start';
 import GameMusicMp3 from './components/music/GameMusicMp3.mp3';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function App() {
   const [showStart, setShowStart] = useState(true);
@@ -32,6 +32,15 @@ export default function App() {
     setPlayerName(name);
     setShowLogin(boolean);
     setShowGame(!boolean);
+  };
+
+  const handleReset = () => {
+    gameMusic.pause();
+    gameMusic.currentTime = 0;
+    setShowGame(false);
+    setShowLogin(true);
+    restartScore();
+    renderGame();
   };
 
   const calculateScore = () => {
@@ -64,6 +73,7 @@ export default function App() {
         name={playerName}
         score={score}
         start={showGame}
+        reset={handleReset}
       />
       {showStart && <Start handleStart={handleStart} />}
       {showLogin && (
