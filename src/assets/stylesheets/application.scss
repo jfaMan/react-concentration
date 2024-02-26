@@ -31,6 +31,7 @@ body {
   justify-content: space-between;
   background-color: #73a1f6;
   padding-right: 24px;
+
   img {
     height: 100%;
   }
@@ -213,31 +214,24 @@ input[type='text'] {
   width: 600px;
   background-color: rgba(255, 255, 255, 0.7);
   margin-top: 32px;
+
+  &__image {
+    border: none;
+    border-radius: 8px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 8px;
+    background-color: $yellow;
+    box-shadow: 4px 4px 4px grey;
+    transition: 0.2s;
+
+    &--blank {
+      background-color: $white;
+    }
+  }
 }
 
-.image {
-  border-radius: 8px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 8px;
-  background-color: $yellow;
-  box-shadow: 4px 4px 4px grey;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.image-blank {
-  border-radius: 8px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 8px;
-  background-color: $white;
-  box-shadow: 4px 4px 4px grey;
-  cursor: pointer;
-  transition: 0.2s;
-}
 .game {
   display: flex;
   height: 630px;

@@ -4,12 +4,12 @@ import Completed from './music/Completed.mp3';
 import Correct from './music/Correct.mp3';
 import GameOver from './music/GameOver.mp3';
 import Wrong from './music/Wrong.mp3';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // Each card has either a true/false found value. If a card is found, it is NOT clickable.
-// If it is NOT found, it is clickable, and the image-blank class property will change to image.
+// If it is NOT found, it is clickable, and the images__image--blank class property will change to images__image.
 // Two cards will be put into an array and checked. If they have the same name, it's a match.
-// Otherwise, they will change back to image-blank.
+// Otherwise, they will change back to images__image--blank.
 // LET'S GO!!!!
 
 type ImagesProps = {
@@ -39,12 +39,7 @@ export default function Images({ gameMusic, handleEndGame, calculateScore, score
   useEffect(() => {
     checkEndGame();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [totalFlippedCards]); // Will run every time totalFlippedCards state changes
-
-  useEffect(() => {
-    checkEndGame();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [score]);
+  }, [totalFlippedCards, score]); // Will run every time totalFlippedCards or score state changes
 
   useEffect(() => {
     if (selectedCardIndex.length === 2) {
@@ -67,16 +62,6 @@ export default function Images({ gameMusic, handleEndGame, calculateScore, score
     }
   };
 
-  // DOM METHOD FOR ABOVE
-  // const nextCard = event.target
-  // if (nextCard.getAttribute("found") === "true") {
-  //   return;
-  // } else {
-  //   nextCard.classList.remove('image-blank')
-  //   nextCard.setAttribute("found", "true")
-  //   setSelectedCardIndex([...selectedCardIndex, nextCard])
-  // }
-
   const checkNames = (firstClickedIndex: number, secondClickedIndex: number) => {
     if (characters[firstClickedIndex].name === characters[secondClickedIndex].name) {
       setTimeout(() => {
@@ -84,6 +69,7 @@ export default function Images({ gameMusic, handleEndGame, calculateScore, score
         correct.play();
       }, 100);
       setTotalFlippedCards(totalFlippedCards + 2);
+      setSelectedCardIndex([]);
     } else {
       setTimeout(() => {
         const wrong = new Audio(Wrong);
@@ -94,35 +80,11 @@ export default function Images({ gameMusic, handleEndGame, calculateScore, score
         newCharacters[firstClickedIndex].flipped = false;
         newCharacters[secondClickedIndex].flipped = false;
         setCharacters(newCharacters);
+        setSelectedCardIndex([]);
       }, 1000);
       calculateScore();
     }
-    setSelectedCardIndex([]);
   };
-
-  // DOM METHOD FOR ABOVE
-  // const checkNames = (card1, card2) => {
-  //   if (card1.getAttribute("name") === card2.getAttribute("name")) {
-  //     setTimeout(() => {
-  //       const correct = new Audio(Correct);
-  //       correct.play();
-  //     }, 100)
-  //     setTotalFlippedCards(totalFlippedCards + 2)
-  //   } else {
-  //     setTimeout(() => {
-  //       const wrong = new Audio(Wrong);
-  //       wrong.play();
-  //     }, 100)
-  //     setTimeout(() => {
-  //       card1.setAttribute("found", "false")
-  //       card2.setAttribute("found", "false")
-  //       card1.classList.add('image-blank')
-  //       card2.classList.add('image-blank')
-  //     }, 1000)
-  //     calculateScore()
-  //   }
-  //   setSelectedCardIndex([])
-  // }
 
   const checkEndGame = () => {
     if (totalFlippedCards === 16) {
@@ -134,7 +96,10 @@ export default function Images({ gameMusic, handleEndGame, calculateScore, score
       setTimeout(() => {
         handleEndGame(true);
       }, 4000);
-    } else if (score === 0) {
+      return;
+    }
+
+    if (score === 0) {
       gameMusic.pause();
       setTimeout(() => {
         const gameover = new Audio(GameOver);
@@ -143,6 +108,7 @@ export default function Images({ gameMusic, handleEndGame, calculateScore, score
       setTimeout(() => {
         handleEndGame(true);
       }, 4000);
+      return;
     }
   };
 
@@ -150,8 +116,9 @@ export default function Images({ gameMusic, handleEndGame, calculateScore, score
     <div className="images">
       {characters.map((image, index) => {
         return (
-          <div
-            className={characters[index].flipped ? 'image' : 'image-blank'}
+          <button
+            key={index}
+            className={characters[index].flipped ? 'images__image' : 'images__image images__image--blank'}
             data-name={image.name}
             style={{
               backgroundImage: `url(${characters[index].flipped ? image.pic : Blank})`
