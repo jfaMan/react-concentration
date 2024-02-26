@@ -74,6 +74,7 @@ export default function Login({ handleLogin }: LoginProps ) {
                 pattern="[a-zA-Z]+"
                 minLength={2}
                 maxLength={7}
+                required
               />
             </div>
             <button className="btn btn-warning">START</button>
