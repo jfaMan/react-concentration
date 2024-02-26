@@ -23,24 +23,24 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showGame]);
 
-  const handleStart = () => {
-    setShowStart(!showStart);
-    setShowLogin(!showLogin);
-  };
-
-  const handleLogin = (name: string, boolean: boolean) => {
-    setPlayerName(name);
-    setShowLogin(boolean);
-    setShowGame(!boolean);
-  };
-
   const handleReset = () => {
     gameMusic.pause();
+    gameMusic.muted = false;
     gameMusic.currentTime = 0;
     setShowGame(false);
     setShowLogin(true);
     restartScore();
-    renderGame();
+  };
+
+  const handleStart = () => {
+    setShowStart(false);
+    setShowLogin(true);
+  };
+
+  const handleLogin = (name: string) => {
+    setPlayerName(name);
+    setShowLogin(false);
+    setShowGame(true);
   };
 
   const calculateScore = () => {
@@ -51,22 +51,6 @@ export default function App() {
     setScore(10);
   };
 
-  const renderGame = () => {
-    if (showGame) {
-      return (
-        <Game
-          gameMusic={gameMusic}
-          playerName={playerName}
-          calculateScore={calculateScore}
-          score={score}
-          restartScore={restartScore}
-        />
-      );
-    } else {
-      return null;
-    }
-  };
-
   return (
     <div>
       <Navbar
@@ -75,14 +59,17 @@ export default function App() {
         start={showGame}
         reset={handleReset}
       />
-      {showStart && <Start handleStart={handleStart} />}
-      {showLogin && (
-        <Login
-          handleLogin={handleLogin}
+      {showStart && <Start handleStart={handleStart}/>}
+      {showLogin && <Login handleLogin={handleLogin}/>}
+      {showGame && (
+        <Game
+          gameMusic={gameMusic}
+          playerName={playerName}
           calculateScore={calculateScore}
+          score={score}
+          restartScore={restartScore}
         />
       )}
-      {renderGame()}
     </div>
   );
 };

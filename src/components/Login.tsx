@@ -5,15 +5,14 @@ import UnmuteImg from './images/Unmute.png';
 import Banjo from './music/Banjo.mp3';
 import Fireplace from './music/Fireplace.mp3';
 import LoginMusic from './music/LoginMusic.mp3';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import type { FormEvent, ChangeEvent } from '../types';
 
 type LoginProps = {
-  handleLogin: (name: string, boolean: boolean) => void;
-  calculateScore: () => void;
+  handleLogin: (name: string) => void;
 };
 
-export default function Login({ handleLogin, calculateScore }: LoginProps ) {
+export default function Login({ handleLogin }: LoginProps ) {
   const [inputName, setInputName] = useState('');
   const [loginMusic] = useState(new Audio(LoginMusic));
   const [fireplace] = useState(new Audio(Fireplace));
@@ -27,12 +26,11 @@ export default function Login({ handleLogin, calculateScore }: LoginProps ) {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    handleLogin(inputName, false);
+    handleLogin(inputName);
     loginMusic.pause();
     fireplace.pause();
     const gameStartBanjoVoice = new Audio(Banjo);
     gameStartBanjoVoice.play();
-    // calculateScore();
   };
 
   const handleChange = (event: ChangeEvent) => {

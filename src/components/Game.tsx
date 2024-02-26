@@ -3,7 +3,7 @@ import Images from './Images';
 import Logo from './images/Logo.png';
 import MuteImg from './images/Mute.png';
 import UnmuteImg from './images/Unmute.png';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 type GameProps = {
   gameMusic: HTMLAudioElement;
