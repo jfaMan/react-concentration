@@ -1,8 +1,8 @@
 import EndGame from './EndGame';
 import Images from './Images';
-import Logo from './images/Logo.png';
-import MuteImg from './images/Mute.png';
-import UnmuteImg from './images/Unmute.png';
+import Logo from '../assets/images/Logo.png';
+import MuteImg from '../assets/images/Mute.png';
+import UnmuteImg from '../assets/images/Unmute.png';
 import { useState } from 'react';
 
 type GameProps = {

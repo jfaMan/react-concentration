@@ -1,10 +1,10 @@
-import Instructions from './images/Instructions.png';
-import Logo from './images/Logo.png';
-import MuteImg from './images/Mute.png';
-import UnmuteImg from './images/Unmute.png';
-import Banjo from './music/Banjo.mp3';
-import Fireplace from './music/Fireplace.mp3';
-import LoginMusic from './music/LoginMusic.mp3';
+import Instructions from '../assets/images/Instructions.png';
+import Logo from '../assets/images/Logo.png';
+import MuteImg from '../assets/images/Mute.png';
+import UnmuteImg from '../assets/images/Unmute.png';
+import Banjo from '../assets/audio/Banjo.mp3';
+import Fireplace from '../assets/audio/Fireplace.mp3';
+import LoginMusic from '../assets/audio/LoginMusic.mp3';
 import { useState, useEffect } from 'react';
 import type { FormEvent, ChangeEvent } from '../types';
 

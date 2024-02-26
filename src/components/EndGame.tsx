@@ -1,13 +1,13 @@
-import Banjo from './images/EndGameBanjo.gif';
-import BanjoStop from './images/EndGameBanjoStop.gif';
-import Gruntilda from './images/EndGameGruntilda.gif';
-import GruntildaStop from './images/EndGameGruntildaStop.gif';
-// import Kazooie from './images/EndGameKazooie.gif';
-import BanjoVoice from './music/BanjoVoice.mp3';
-import GruntildaVoice from './music/GruntildaVoice.mp3';
+import Banjo from '../assets/images/EndGameBanjo.gif';
+import BanjoStop from '../assets/images/EndGameBanjoStop.gif';
+import Gruntilda from '../assets/images/EndGameGruntilda.gif';
+import GruntildaStop from '../assets/images/EndGameGruntildaStop.gif';
+// import Kazooie from '../assets/images/EndGameKazooie.gif';
+import BanjoVoice from '../assets/audio/BanjoVoice.mp3';
+import GruntildaVoice from '../assets/audio/GruntildaVoice.mp3';
 import React, { useEffect, useState } from 'react';
 
-// import KazooieVoice from './music/KazooieVoice.mp3';
+// import KazooieVoice from '../assets/audio/KazooieVoice.mp3';
 // import Typewriter from 'typewriter-effect';
 
 type EndGameProps = {

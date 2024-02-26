@@ -1,9 +1,9 @@
-import Blank from './images/Blank.jpg';
-import images from './images/index';
-import Completed from './music/Completed.mp3';
-import Correct from './music/Correct.mp3';
-import GameOver from './music/GameOver.mp3';
-import Wrong from './music/Wrong.mp3';
+import Blank from '../assets/images/Blank.jpg';
+import images from '../assets/images/index';
+import Completed from '../assets/audio/Completed.mp3';
+import Correct from '../assets/audio/Correct.mp3';
+import GameOver from '../assets/audio/GameOver.mp3';
+import Wrong from '../assets/audio/Wrong.mp3';
 import { useEffect, useState } from 'react';
 
 // Each card has either a true/false found value. If a card is found, it is NOT clickable.

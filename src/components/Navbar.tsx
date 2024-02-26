@@ -1,4 +1,4 @@
-import NavbarLogo from './images/NavbarLogo.png';
+import NavbarLogo from '../assets/images/NavbarLogo.png';
 
 type NavbarProps = {
   name: string;

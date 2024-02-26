@@ -2,7 +2,7 @@ import Game from './components/Game';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Start from './components/Start';
-import GameMusicMp3 from './components/music/GameMusicMp3.mp3';
+import GameMusicMp3 from './assets/audio/GameMusicMp3.mp3';
 import { useEffect, useState } from 'react';
 
 export default function App() {
