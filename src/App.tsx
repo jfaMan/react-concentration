@@ -14,6 +14,8 @@ export default function App() {
   const [gameMusic] = useState(new Audio(GameMusicMp3));
 
   useEffect(() => {
+    if (!showGame) return;
+
     setTimeout(() => {
       gameMusic.setAttribute('loop', 'true');
       gameMusic.play();
