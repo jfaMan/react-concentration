@@ -13,6 +13,7 @@ $white: #f8f8f8;
 // Styling //
 
 body {
+  min-width: 380px;
   background-color: $yellow;
   font-family: banjoKazooie;
   background-image: url('../images/Background.jpg');
@@ -208,16 +209,22 @@ input[type='text'] {
 }
 
 .images {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  grid-auto-rows: minmax(100px, auto);
-  padding: 12px;
-  border-radius: 8px;
-  height: 600px;
-  width: 600px;
-  background-color: rgba(255, 255, 255, 0.7);
   margin-top: 32px;
+  width: 100%;
+
+  &__inner-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    grid-auto-rows: minmax(100px, auto);
+    padding: 12px;
+    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: 0 auto;
+  }
 
   &__image {
     border: none;
@@ -378,6 +385,54 @@ input[type='text'] {
       }
     }
   }
+
+
+  .game {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    .images {
+      margin: 16px 8px 16px 8px;
+      &__inner-container {
+        max-width: 500px;
+      }
+    }
+    .game-left {
+      align-items: center;
+      margin: 40px 16px 24px 16px;
+    }
+    .bounce {
+      animation-name: bounce-mobile;
+      order: 0;
+    }
+    .game-right {
+      height: auto;
+      margin: 16px;
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: flex-end;
+      .game-mute-container {
+        .game-mute-btn {
+          height: 16px;
+          position: absolute;
+          top: 74px;
+          right: 14px;
+        }
+      }
+    }
+    .end-game-left {
+      order: 1;
+      margin-top: 40px;
+      height: 300px;
+      // .final-score {
+      //   display: none;
+      // }
+      .end-game-left-message {
+        width: 100%;
+        padding: 4px 16px 4px 16px;
+      }
+    }
+  }
 }
 
 @media (max-width: 976px) {
@@ -507,52 +562,6 @@ input[type='text'] {
             width: 125px;
           }
         }
-      }
-    }
-  }
-
-  .game {
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    .images {
-      width: auto;
-      height: auto;
-      margin: 16px 8px 16px 8px;
-    }
-    .game-left {
-      align-items: center;
-      margin: 40px 16px 24px 16px;
-    }
-    .bounce {
-      animation-name: bounce-mobile;
-      order: 0;
-    }
-    .game-right {
-      height: auto;
-      margin: 16px;
-      // display: flex;
-      // flex-direction: column;
-      // justify-content: flex-end;
-      .game-mute-container {
-        .game-mute-btn {
-          height: 16px;
-          position: absolute;
-          top: 74px;
-          right: 14px;
-        }
-      }
-    }
-    .end-game-left {
-      order: 1;
-      margin-top: 40px;
-      height: 300px;
-      // .final-score {
-      //   display: none;
-      // }
-      .end-game-left-message {
-        width: 100%;
-        padding: 4px 16px 4px 16px;
       }
     }
   }

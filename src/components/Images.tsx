@@ -114,19 +114,21 @@ export default function Images({ gameMusic, handleEndGame, calculateScore, score
 
   return (
     <div className="images">
-      {characters.map((image, index) => {
-        return (
-          <button
-            key={index}
-            className={characters[index].flipped ? 'images__image' : 'images__image images__image--blank'}
-            data-name={image.name}
-            style={{
-              backgroundImage: `url(${characters[index].flipped ? image.pic : Blank})`
-            }}
-            onClick={() => handleClick(index)}
-          />
-        );
-      })}
+      <div className="images__inner-container">
+        {characters.map((image, index) => {
+          return (
+            <button
+              key={index}
+              className={characters[index].flipped ? 'images__image' : 'images__image images__image--blank'}
+              data-name={image.name}
+              style={{
+                backgroundImage: `url(${characters[index].flipped ? image.pic : Blank})`
+              }}
+              onClick={() => handleClick(index)}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
