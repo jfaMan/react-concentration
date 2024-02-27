@@ -1,31 +1,60 @@
-import NavbarLogo from './images/NavbarLogo.png';
-import React, { useState } from 'react';
-
-// import NavbarLogo2 from './images/NavbarLogo2.png';
-// import LogoToggle from './music/LogoToggle.mp3'
+import { useEffect, useState } from 'react';
+import MuteImg from '../assets/images/Mute.png';
+import NavbarLogo from '../assets/images/NavbarLogo.png';
+import UnmuteImg from '../assets/images/Unmute.png';
 
 type NavbarProps = {
   name: string;
   score: number;
-  start: boolean;
+  login: boolean;
+  game: boolean;
+  reset: () => void;
+  loginMusic: HTMLAudioElement;
+  gameMusic: HTMLAudioElement;
 };
 
-export default function Navbar({ name, score, start }: NavbarProps) {
-  // const [ oldLogo, setOldLogo] = useState(false);
+export default function Navbar({ name, score, login, game, reset, loginMusic, gameMusic }: NavbarProps) {
+  const [audioOn, setAudioOn] = useState(true);
+  const [track, setTrack] = useState(loginMusic);
 
-  // const toggleLogo = () => {
-  //   setOldLogo(!oldLogo)
-  //   const toggleJingle = new Audio(LogoToggle);
-  //   toggleJingle.play();
-  // }
+  useEffect(() => {
+    login && setTrack(loginMusic);
+    game && setTrack(gameMusic);
+    setAudioOn(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [login, game])
+
+  const muteAudio = () => {
+    track.muted = !track.muted ? true : false;
+    setAudioOn(!audioOn);
+  };
+
+  const handleClick = () => {
+    if (game && window.confirm("Are you sure you want to return to the main menu? The current game's progress will be lost!")) {
+      reset();
+    }
+
+    return;
+  };
+
   return (
     <div className="navbar">
       <img
+        className={game ? "navbar__logo navbar__logo--clickable" : "navbar__logo"}
         src={NavbarLogo}
         alt="Logo"
+        onClick={handleClick}
       />
-      {start && <div className="score">TRIES REMAINING: {score}</div>}
-      {start && <div className="name">NAME: {name}</div>}
+      {game && <div className="navbar__score">TRIES REMAINING: {score}</div>}
+      {game && <div className="navbar__name">NAME: {name}</div>}
+      {(login || game) && <div className="mute">
+        <img
+          className="mute__button"
+          onClick={muteAudio}
+          src={!audioOn ? MuteImg : UnmuteImg}
+          alt="Mute/Unmute Icon"
+        />
+      </div>}
     </div>
   );
 };

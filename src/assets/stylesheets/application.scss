@@ -11,11 +11,11 @@ $blue: #73a1f6;
 $white: #f8f8f8;
 
 // Styling //
-
 body {
+  min-width: 380px;
   background-color: $yellow;
   font-family: banjoKazooie;
-  background-image: url('../../components/images/Background.jpg');
+  background-image: url('../images/Background.jpg');
   background-position: 20% 20%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -31,8 +31,13 @@ body {
   justify-content: space-between;
   background-color: #73a1f6;
   padding-right: 24px;
-  img {
+
+  &__logo {
     height: 100%;
+
+    &--clickable {
+      cursor: pointer;
+    }
   }
 }
 
@@ -105,37 +110,38 @@ body {
   }
 }
 
-.login-wrapper {
-  .login-mute-container {
-    text-align: end;
-    margin: 32px 32px 0 32px;
-    .login-mute-btn {
-      height: 24px;
-      cursor: pointer;
-    }
+.mute {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+
+  &__button {
+    height: 24px;
+    cursor: pointer;
   }
-  .login-instructions {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    .instructions {
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 50px;
-      width: 500px;
-      padding: 16px 32px 16px 32px;
-      // margin: 0 32px 0 32px;
-      box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.7);
-      text-align: center;
-      color: $white;
-      p {
-        margin: 16px 0 0 0;
-        font-size: 16px;
-      }
-      img {
-        width: 200px;
-      }
+}
+
+.login-instructions {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .instructions {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50px;
+    width: 500px;
+    padding: 16px 32px 16px 32px;
+    // margin: 0 32px 0 32px;
+    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: $white;
+    p {
+      margin: 16px 0 0 0;
+      font-size: 16px;
+    }
+    img {
+      width: 200px;
     }
   }
 }
@@ -203,41 +209,39 @@ input[type='text'] {
 }
 
 .images {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  grid-auto-rows: minmax(100px, auto);
-  padding: 12px;
-  border-radius: 8px;
-  height: 600px;
-  width: 600px;
-  background-color: rgba(255, 255, 255, 0.7);
   margin-top: 32px;
+  width: 100%;
+
+  &__inner-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    grid-auto-rows: minmax(100px, auto);
+    padding: 12px;
+    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  &__image {
+    border: none;
+    border-radius: 8px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 8px;
+    background-color: $yellow;
+    box-shadow: 4px 4px 4px grey;
+    transition: 0.2s;
+
+    &--blank {
+      background-color: $white;
+    }
+  }
 }
 
-.image {
-  border-radius: 8px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 8px;
-  background-color: $yellow;
-  box-shadow: 4px 4px 4px grey;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.image-blank {
-  border-radius: 8px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 8px;
-  background-color: $white;
-  box-shadow: 4px 4px 4px grey;
-  cursor: pointer;
-  transition: 0.2s;
-}
 .game {
   display: flex;
   height: 630px;
@@ -249,9 +253,11 @@ input[type='text'] {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 400px;
   img {
     width: 240px;
     height: auto;
+    margin: 0 auto;
     animation-duration: 3s;
     animation-iteration-count: infinite;
   }
@@ -287,23 +293,16 @@ input[type='text'] {
         margin: 0;
       }
     }
-    .btn {
-      width: 200px;
-      height: 60px;
-      border-radius: 32px;
-      box-shadow: 4px 4px 20px black;
-    }
-  }
-}
+    .button-container {
+      display: flex;
+      gap: 10px;
 
-.game-right {
-  flex: 1;
-  margin: 32px 32px 0 32px;
-  .game-mute-container {
-    text-align: end;
-    .game-mute-btn {
-      height: 24px;
-      cursor: pointer;
+      .btn {
+        width: 180px;
+        height: 50px;
+        border-radius: 32px;
+        box-shadow: 4px 4px 20px black;
+      }
     }
   }
 }
@@ -330,6 +329,103 @@ input[type='text'] {
 // }
 
 // MEDIA QUERIES BELOW //
+
+@media (max-width: 1124px) {
+  .login-screen {
+    .login-page {
+      form {
+        height: 300px;
+        width: 500px;
+        h5 {
+          margin: 8px 0 16px 0;
+          font-size: 18px;
+        }
+        label {
+          font-size: 14px;
+        }
+        button {
+          width: 120px;
+          height: 36px;
+          margin: 0;
+        }
+        img {
+          height: 72px;
+          animation-duration: 3s;
+        }
+        .bounce {
+          animation-name: bounce-mobile;
+        }
+      }
+    }
+    .login-instructions {
+      .instructions {
+        width: 450px;
+        h1 {
+          font-size: 26px;
+        }
+        p {
+          font-size: 14px;
+        }
+        img {
+          width: 175px;
+        }
+      }
+    }
+  }
+
+  .game {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    .images {
+      margin: 16px 8px 16px 8px;
+      &__inner-container {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    }
+    .game-left {
+      align-items: center;
+      margin: 40px 16px 24px 16px;
+      min-width: auto;
+    }
+    .bounce {
+      animation-name: bounce-mobile;
+      order: 0;
+    }
+    .end-game-left {
+      order: 1;
+      margin-top: 40px;
+      height: 300px;
+      // .final-score {
+      //   display: none;
+      // }
+      .end-game-left-message {
+        width: 100%;
+        padding: 4px 16px 4px 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 976px) {
+  .login-screen {
+    .login-page {
+      form {
+        height: 300px;
+        width: 360px;
+      }
+    }
+    .login-instructions {
+      .instructions {
+        width: 350px;
+        img {
+          width: 150px;
+        }
+      }
+    }
+  }
+}
 
 @media (max-width: 768px) {
   .start-screen {
@@ -358,7 +454,8 @@ input[type='text'] {
     background-color: #73a1f6;
     padding-right: 18px;
     font-size: 14px;
-    img {
+
+    &__logo {
       height: auto;
       width: 60px;
     }
@@ -374,181 +471,76 @@ input[type='text'] {
     }
   }
 
-  .login-wrapper {
-    .login-mute-container {
-      margin: 0;
-      .login-mute-btn {
-        height: 16px;
-        position: absolute;
-        top: 74px;
-        right: 14px;
-      }
+  .mute {
+    margin: 0;
+
+    &__button {
+      height: 16px;
     }
-    .login-screen {
-      display: block;
-      height: 630px;
-      .login-page {
-        margin-top: 12px;
-        form {
-          justify-content: center;
-          height: 300px;
-          width: 450px;
-          h5 {
-            margin: 8px 0 16px 0;
-            font-size: 18px;
-          }
-          label {
-            font-size: 14px;
-          }
-          button {
-            width: 120px;
-            height: 36px;
-            margin: 0;
-          }
-          img {
-            height: 72px;
-            animation-duration: 0s;
-          }
-          .bounce {
-            animation-name: bounce-mobile;
-          }
+  }
+
+  .login-screen {
+    display: block;
+    height: 630px;
+    .login-page {
+      margin-top: 12px;
+      form {
+        justify-content: center;
+        height: 300px;
+        width: 450px;
+        h5 {
+          margin: 8px 0 16px 0;
+          font-size: 18px;
+        }
+        label {
+          font-size: 14px;
+        }
+        button {
+          width: 120px;
+          height: 36px;
+          margin: 0;
+        }
+        img {
+          height: 72px;
+          animation-duration: 0s;
+        }
+        .bounce {
+          animation-name: bounce-mobile;
         }
       }
-      .login-instructions {
-        flex: 1;
-        .instructions {
-          background-color: rgba(0, 0, 0, 0.7);
-          border-radius: 50px;
-          width: auto;
-          padding: 16px 24px 16px 24px;
-          margin: 24px 12px 24px 12px;
-          box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.7);
-          text-align: center;
-          color: $white;
-          h1 {
-            font-size: 28px;
-          }
-          p {
-            margin: 16px 0 0 0;
-            font-size: 14px;
-          }
-          img {
-            width: 125px;
-          }
+    }
+    .login-instructions {
+      flex: 1;
+      .instructions {
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 50px;
+        width: auto;
+        padding: 16px 24px 16px 24px;
+        margin: 24px 12px 24px 12px;
+        box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.7);
+        text-align: center;
+        color: $white;
+        h1 {
+          font-size: 28px;
+        }
+        p {
+          margin: 16px 0 0 0;
+          font-size: 14px;
+        }
+        img {
+          width: 125px;
         }
       }
     }
   }
+}
 
+@media (max-width: 520px) {
   .game {
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    .images {
-      width: auto;
-      height: auto;
-      margin: 16px 8px 16px 8px;
-    }
-    .game-left {
-      align-items: center;
-      margin: 40px 16px 24px 16px;
-    }
-    .bounce {
-      animation-name: bounce-mobile;
-      order: 0;
-    }
-    .game-right {
-      height: auto;
-      margin: 16px;
-      // display: flex;
-      // flex-direction: column;
-      // justify-content: flex-end;
-      .game-mute-container {
-        .game-mute-btn {
-          height: 16px;
-          position: absolute;
-          top: 74px;
-          right: 14px;
-        }
-      }
-    }
     .end-game-left {
-      order: 1;
-      margin-top: 40px;
-      height: 300px;
-      // .final-score {
-      //   display: none;
-      // }
-      .end-game-left-message {
-        width: 100%;
-        padding: 4px 16px 4px 16px;
-      }
-    }
-  }
-}
-
-@media (max-width: 1124px) {
-  .login-wrapper {
-    .login-screen {
-      .login-page {
-        form {
-          height: 300px;
-          width: 500px;
-          h5 {
-            margin: 8px 0 16px 0;
-            font-size: 18px;
-          }
-          label {
-            font-size: 14px;
-          }
-          button {
-            width: 120px;
-            height: 36px;
-            margin: 0;
-          }
-          img {
-            height: 72px;
-            animation-duration: 3s;
-          }
-          .bounce {
-            animation-name: bounce-mobile;
-          }
-        }
-      }
-      .login-instructions {
-        .instructions {
-          width: 450px;
-          h1 {
-            font-size: 26px;
-          }
-          p {
-            font-size: 14px;
-          }
-          img {
-            width: 175px;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 976px) {
-  .login-wrapper {
-    .login-screen {
-      .login-page {
-        form {
-          height: 300px;
-          width: 360px;
-        }
-      }
-      .login-instructions {
-        .instructions {
-          width: 350px;
-          img {
-            width: 150px;
-          }
-        }
+      height: 400px;
+      .button-container {
+        flex-direction: column;
       }
     }
   }

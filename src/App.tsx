@@ -2,8 +2,9 @@ import Game from './components/Game';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Start from './components/Start';
-import GameMusicMp3 from './components/music/GameMusicMp3.mp3';
-import React, { useEffect, useState } from 'react';
+import GameMusicMp3 from './assets/audio/GameMusicMp3.mp3';
+import LoginMusic from './assets/audio/LoginMusic.mp3';
+import { useState } from 'react';
 
 export default function App() {
   const [showStart, setShowStart] = useState(true);
@@ -11,25 +12,24 @@ export default function App() {
   const [showGame, setShowGame] = useState(false);
   const [playerName, setPlayerName] = useState('');
   const [score, setScore] = useState(10);
+  const [loginMusic] = useState(new Audio(LoginMusic));
   const [gameMusic] = useState(new Audio(GameMusicMp3));
 
-  useEffect(() => {
-    setTimeout(() => {
-      gameMusic.setAttribute('loop', 'true');
-      gameMusic.play();
-    }, 500);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [showGame]);
-
-  const handleStart = () => {
-    setShowStart(!showStart);
-    setShowLogin(!showLogin);
+  const handleReset = () => {
+    setShowGame(false);
+    setShowLogin(true);
+    restartScore();
   };
 
-  const handleLogin = (name: string, boolean: boolean) => {
+  const handleStart = () => {
+    setShowStart(false);
+    setShowLogin(true);
+  };
+
+  const handleLogin = (name: string) => {
     setPlayerName(name);
-    setShowLogin(boolean);
-    setShowGame(!boolean);
+    setShowLogin(false);
+    setShowGame(true);
   };
 
   const calculateScore = () => {
@@ -40,37 +40,29 @@ export default function App() {
     setScore(10);
   };
 
-  const renderGame = () => {
-    if (showGame) {
-      return (
+  return (
+    <div>
+      <Navbar
+        name={playerName}
+        score={score}
+        login={showLogin}
+        game={showGame}
+        reset={handleReset}
+        loginMusic={loginMusic}
+        gameMusic={gameMusic}
+      />
+      {showStart && <Start handleStart={handleStart}/>}
+      {showLogin && <Login handleLogin={handleLogin} loginMusic={loginMusic}/>}
+      {showGame && (
         <Game
           gameMusic={gameMusic}
           playerName={playerName}
           calculateScore={calculateScore}
           score={score}
           restartScore={restartScore}
-        />
-      );
-    } else {
-      return null;
-    }
-  };
-
-  return (
-    <div>
-      <Navbar
-        name={playerName}
-        score={score}
-        start={showGame}
-      />
-      {showStart && <Start handleStart={handleStart} />}
-      {showLogin && (
-        <Login
-          handleLogin={handleLogin}
-          calculateScore={calculateScore}
+          reset={handleReset}
         />
       )}
-      {renderGame()}
     </div>
   );
 };

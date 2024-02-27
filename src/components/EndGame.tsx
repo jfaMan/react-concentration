@@ -1,13 +1,13 @@
-import Banjo from './images/EndGameBanjo.gif';
-import BanjoStop from './images/EndGameBanjoStop.gif';
-import Gruntilda from './images/EndGameGruntilda.gif';
-import GruntildaStop from './images/EndGameGruntildaStop.gif';
-// import Kazooie from './images/EndGameKazooie.gif';
-import BanjoVoice from './music/BanjoVoice.mp3';
-import GruntildaVoice from './music/GruntildaVoice.mp3';
+import Banjo from '../assets/images/EndGameBanjo.gif';
+import BanjoStop from '../assets/images/EndGameBanjoStop.gif';
+import Gruntilda from '../assets/images/EndGameGruntilda.gif';
+import GruntildaStop from '../assets/images/EndGameGruntildaStop.gif';
+// import Kazooie from '../assets/images/EndGameKazooie.gif';
+import BanjoVoice from '../assets/audio/BanjoVoice.mp3';
+import GruntildaVoice from '../assets/audio/GruntildaVoice.mp3';
 import React, { useEffect, useState } from 'react';
 
-// import KazooieVoice from './music/KazooieVoice.mp3';
+// import KazooieVoice from '../assets/audio/KazooieVoice.mp3';
 // import Typewriter from 'typewriter-effect';
 
 type EndGameProps = {
@@ -15,9 +15,10 @@ type EndGameProps = {
   score: number;
   handleEndGame: (boolean: boolean) => void;
   refreshImages: () => void;
+  reset: () => void;
 };
 
-export default function EndGame({ playerName, score, handleEndGame, refreshImages }: EndGameProps) {
+export default function EndGame({ playerName, score, handleEndGame, refreshImages, reset }: EndGameProps) {
   const [banjo] = useState(new Audio(BanjoVoice));
   const [gruntilda] = useState(new Audio(GruntildaVoice));
   // const [ kazooie ] = useState(new Audio(KazooieVoice));
@@ -73,11 +74,17 @@ export default function EndGame({ playerName, score, handleEndGame, refreshImage
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleClick = () => {
+  const handleRetryClick = () => {
     score === 0 ? gruntilda.pause() : banjo.pause();
     handleEndGame(false);
     refreshImages();
   };
+
+  const handleResetClick = () => {
+    banjo.pause();
+    gruntilda.pause();
+    reset();
+  }
 
   const renderMessage = () => {
     if (score !== 0) {
@@ -142,12 +149,20 @@ export default function EndGame({ playerName, score, handleEndGame, refreshImage
       >
         <h1>{score !== 0 ? `SCORE = ${finalScore}` : 'GAME OVER'}</h1>
       </div>
-      <button
-        onClick={handleClick}
-        className="btn btn-warning"
-      >
-        {score === 0 ? 'RETRY' : 'PLAY AGAIN'}
-      </button>
+      <div className="button-container">
+        <button
+          onClick={handleRetryClick}
+          className="btn btn-warning"
+        >
+          {score === 0 ? 'RETRY' : 'PLAY AGAIN'}
+        </button>
+        <button
+          onClick={handleResetClick}
+          className="btn btn-warning"
+        >
+          QUIT TO MAIN MENU
+        </button>
+      </div>
     </div>
   );
 };

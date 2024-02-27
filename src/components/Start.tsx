@@ -1,7 +1,3 @@
-import React from 'react';
-
-// import Logo from './images/Logo.png';
-
 type StartProps = {
   handleStart: () => void;
 };
