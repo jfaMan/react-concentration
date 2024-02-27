@@ -11,7 +11,6 @@ $blue: #73a1f6;
 $white: #f8f8f8;
 
 // Styling //
-
 body {
   min-width: 380px;
   background-color: $yellow;
@@ -111,37 +110,38 @@ body {
   }
 }
 
-.login-wrapper {
-  .login-mute-container {
-    text-align: end;
-    margin: 32px 32px 0 32px;
-    .login-mute-btn {
-      height: 24px;
-      cursor: pointer;
-    }
+.mute {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+
+  &__button {
+    height: 24px;
+    cursor: pointer;
   }
-  .login-instructions {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    .instructions {
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 50px;
-      width: 500px;
-      padding: 16px 32px 16px 32px;
-      // margin: 0 32px 0 32px;
-      box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.7);
-      text-align: center;
-      color: $white;
-      p {
-        margin: 16px 0 0 0;
-        font-size: 16px;
-      }
-      img {
-        width: 200px;
-      }
+}
+
+.login-instructions {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .instructions {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50px;
+    width: 500px;
+    padding: 16px 32px 16px 32px;
+    // margin: 0 32px 0 32px;
+    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: $white;
+    p {
+      margin: 16px 0 0 0;
+      font-size: 16px;
+    }
+    img {
+      width: 200px;
     }
   }
 }
@@ -306,18 +306,6 @@ input[type='text'] {
   }
 }
 
-.game-right {
-  flex: 1;
-  margin: 32px 32px 0 32px;
-  .game-mute-container {
-    text-align: end;
-    .game-mute-btn {
-      height: 24px;
-      cursor: pointer;
-    }
-  }
-}
-
 .typewriter {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   white-space: nowrap; /* Keeps the content on a single line */
@@ -342,50 +330,47 @@ input[type='text'] {
 // MEDIA QUERIES BELOW //
 
 @media (max-width: 1124px) {
-  .login-wrapper {
-    .login-screen {
-      .login-page {
-        form {
-          height: 300px;
-          width: 500px;
-          h5 {
-            margin: 8px 0 16px 0;
-            font-size: 18px;
-          }
-          label {
-            font-size: 14px;
-          }
-          button {
-            width: 120px;
-            height: 36px;
-            margin: 0;
-          }
-          img {
-            height: 72px;
-            animation-duration: 3s;
-          }
-          .bounce {
-            animation-name: bounce-mobile;
-          }
+  .login-screen {
+    .login-page {
+      form {
+        height: 300px;
+        width: 500px;
+        h5 {
+          margin: 8px 0 16px 0;
+          font-size: 18px;
+        }
+        label {
+          font-size: 14px;
+        }
+        button {
+          width: 120px;
+          height: 36px;
+          margin: 0;
+        }
+        img {
+          height: 72px;
+          animation-duration: 3s;
+        }
+        .bounce {
+          animation-name: bounce-mobile;
         }
       }
-      .login-instructions {
-        .instructions {
-          width: 450px;
-          h1 {
-            font-size: 26px;
-          }
-          p {
-            font-size: 14px;
-          }
-          img {
-            width: 175px;
-          }
+    }
+    .login-instructions {
+      .instructions {
+        width: 450px;
+        h1 {
+          font-size: 26px;
+        }
+        p {
+          font-size: 14px;
+        }
+        img {
+          width: 175px;
         }
       }
     }
   }
-
 
   .game {
     flex-direction: column;
@@ -405,21 +390,6 @@ input[type='text'] {
       animation-name: bounce-mobile;
       order: 0;
     }
-    .game-right {
-      height: auto;
-      margin: 16px;
-      // display: flex;
-      // flex-direction: column;
-      // justify-content: flex-end;
-      .game-mute-container {
-        .game-mute-btn {
-          height: 16px;
-          position: absolute;
-          top: 74px;
-          right: 14px;
-        }
-      }
-    }
     .end-game-left {
       order: 1;
       margin-top: 40px;
@@ -436,20 +406,18 @@ input[type='text'] {
 }
 
 @media (max-width: 976px) {
-  .login-wrapper {
-    .login-screen {
-      .login-page {
-        form {
-          height: 300px;
-          width: 360px;
-        }
+  .login-screen {
+    .login-page {
+      form {
+        height: 300px;
+        width: 360px;
       }
-      .login-instructions {
-        .instructions {
-          width: 350px;
-          img {
-            width: 150px;
-          }
+    }
+    .login-instructions {
+      .instructions {
+        width: 350px;
+        img {
+          width: 150px;
         }
       }
     }
@@ -500,67 +468,64 @@ input[type='text'] {
     }
   }
 
-  .login-wrapper {
-    .login-mute-container {
-      margin: 0;
-      .login-mute-btn {
-        height: 16px;
-        position: absolute;
-        top: 74px;
-        right: 14px;
-      }
+  .mute {
+    margin: 0;
+
+    &__button {
+      height: 16px;
     }
-    .login-screen {
-      display: block;
-      height: 630px;
-      .login-page {
-        margin-top: 12px;
-        form {
-          justify-content: center;
-          height: 300px;
-          width: 450px;
-          h5 {
-            margin: 8px 0 16px 0;
-            font-size: 18px;
-          }
-          label {
-            font-size: 14px;
-          }
-          button {
-            width: 120px;
-            height: 36px;
-            margin: 0;
-          }
-          img {
-            height: 72px;
-            animation-duration: 0s;
-          }
-          .bounce {
-            animation-name: bounce-mobile;
-          }
+  }
+
+  .login-screen {
+    display: block;
+    height: 630px;
+    .login-page {
+      margin-top: 12px;
+      form {
+        justify-content: center;
+        height: 300px;
+        width: 450px;
+        h5 {
+          margin: 8px 0 16px 0;
+          font-size: 18px;
+        }
+        label {
+          font-size: 14px;
+        }
+        button {
+          width: 120px;
+          height: 36px;
+          margin: 0;
+        }
+        img {
+          height: 72px;
+          animation-duration: 0s;
+        }
+        .bounce {
+          animation-name: bounce-mobile;
         }
       }
-      .login-instructions {
-        flex: 1;
-        .instructions {
-          background-color: rgba(0, 0, 0, 0.7);
-          border-radius: 50px;
-          width: auto;
-          padding: 16px 24px 16px 24px;
-          margin: 24px 12px 24px 12px;
-          box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.7);
-          text-align: center;
-          color: $white;
-          h1 {
-            font-size: 28px;
-          }
-          p {
-            margin: 16px 0 0 0;
-            font-size: 14px;
-          }
-          img {
-            width: 125px;
-          }
+    }
+    .login-instructions {
+      flex: 1;
+      .instructions {
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 50px;
+        width: auto;
+        padding: 16px 24px 16px 24px;
+        margin: 24px 12px 24px 12px;
+        box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.7);
+        text-align: center;
+        color: $white;
+        h1 {
+          font-size: 28px;
+        }
+        p {
+          margin: 16px 0 0 0;
+          font-size: 14px;
+        }
+        img {
+          width: 125px;
         }
       }
     }

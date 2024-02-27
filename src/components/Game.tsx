@@ -1,9 +1,7 @@
 import EndGame from './EndGame';
 import Images from './Images';
 import Logo from '../assets/images/Logo.png';
-import MuteImg from '../assets/images/Mute.png';
-import UnmuteImg from '../assets/images/Unmute.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type GameProps = {
   gameMusic: HTMLAudioElement;
@@ -16,8 +14,21 @@ type GameProps = {
 
 export default function Game({ gameMusic, playerName, calculateScore, score, restartScore, reset }: GameProps) {
   const [showEndGame, setShowEndGame] = useState(false);
-  const [audioOn, setAudioOn] = useState(true);
   const [imagesKey, setImagesKey] = useState(10);
+
+  useEffect(() => {
+    setTimeout(() => {
+      gameMusic.setAttribute('loop', 'true');
+      gameMusic.play();
+    }, 500);
+
+    return () => {
+      gameMusic.pause();
+      gameMusic.muted = false;
+      gameMusic.currentTime = 0;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const handleEndGame = (boolean: boolean) => {
     setShowEndGame(boolean);
@@ -26,19 +37,9 @@ export default function Game({ gameMusic, playerName, calculateScore, score, res
   const refreshImages = () => {
     gameMusic.currentTime = 0;
     gameMusic.volume = 1;
-    gameMusic.setAttribute('loop', 'true');
     gameMusic.play();
     restartScore();
     setImagesKey(imagesKey - 1);
-  };
-
-  const muteAudio = () => {
-    gameMusic.muted = !gameMusic.muted ? true : false;
-    setAudioOn(!audioOn);
-  };
-
-  const audioIconToggle = () => {
-    return !audioOn ? MuteImg : UnmuteImg;
   };
 
   return (
@@ -72,16 +73,6 @@ export default function Game({ gameMusic, playerName, calculateScore, score, res
         calculateScore={calculateScore}
         score={score}
       />
-      <div className="game-right">
-        <div className="game-mute-container">
-          <img
-            className="game-mute-btn"
-            onClick={muteAudio}
-            src={audioIconToggle()}
-            alt="Mute/Unmute Icon"
-          />
-        </div>
-      </div>
     </div>
   );
 };

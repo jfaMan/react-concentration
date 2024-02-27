@@ -3,7 +3,8 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Start from './components/Start';
 import GameMusicMp3 from './assets/audio/GameMusicMp3.mp3';
-import { useEffect, useState } from 'react';
+import LoginMusic from './assets/audio/LoginMusic.mp3';
+import { useState } from 'react';
 
 export default function App() {
   const [showStart, setShowStart] = useState(true);
@@ -11,22 +12,10 @@ export default function App() {
   const [showGame, setShowGame] = useState(false);
   const [playerName, setPlayerName] = useState('');
   const [score, setScore] = useState(10);
+  const [loginMusic] = useState(new Audio(LoginMusic));
   const [gameMusic] = useState(new Audio(GameMusicMp3));
 
-  useEffect(() => {
-    if (!showGame) return;
-
-    setTimeout(() => {
-      gameMusic.setAttribute('loop', 'true');
-      gameMusic.play();
-    }, 500);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [showGame]);
-
   const handleReset = () => {
-    gameMusic.pause();
-    gameMusic.muted = false;
-    gameMusic.currentTime = 0;
     setShowGame(false);
     setShowLogin(true);
     restartScore();
@@ -56,11 +45,14 @@ export default function App() {
       <Navbar
         name={playerName}
         score={score}
-        start={showGame}
+        login={showLogin}
+        game={showGame}
         reset={handleReset}
+        loginMusic={loginMusic}
+        gameMusic={gameMusic}
       />
       {showStart && <Start handleStart={handleStart}/>}
-      {showLogin && <Login handleLogin={handleLogin}/>}
+      {showLogin && <Login handleLogin={handleLogin} loginMusic={loginMusic}/>}
       {showGame && (
         <Game
           gameMusic={gameMusic}
