@@ -223,7 +223,6 @@ input[type='text'] {
     width: 100%;
     max-width: 600px;
     background-color: rgba(255, 255, 255, 0.7);
-    margin: 0 auto;
   }
 
   &__image {
@@ -254,9 +253,11 @@ input[type='text'] {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 400px;
   img {
     width: 240px;
     height: auto;
+    margin: 0 auto;
     animation-duration: 3s;
     animation-iteration-count: infinite;
   }
@@ -380,11 +381,13 @@ input[type='text'] {
       margin: 16px 8px 16px 8px;
       &__inner-container {
         max-width: 500px;
+        margin: 0 auto;
       }
     }
     .game-left {
       align-items: center;
       margin: 40px 16px 24px 16px;
+      min-width: auto;
     }
     .bounce {
       animation-name: bounce-mobile;
