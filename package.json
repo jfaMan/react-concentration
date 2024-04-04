@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^6.4.1",
-    "@testing-library/react": "^14.1.2",
-    "@testing-library/user-event": "^14.4.3",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.2",
+    "@testing-library/user-event": "^14.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "typewriter-effect": "^2.21.0",
-    "web-vitals": "^3.3.2"
+    "web-vitals": "^3.5.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/jest": "^29.5.12",
-    "@types/node": "^20.11.17",
+    "@types/node": "^20.12.2",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "eslint-config-prettier": "^8.8.0",
